@@ -1,0 +1,10 @@
+const app = require('../../app.module');
+(() => {
+    app.service('app:camel', app:camelService);
+
+    app:camelService.$inject = [];
+
+    function app:camelService() {
+        this.name = 'app:camelService';
+    }
+})();

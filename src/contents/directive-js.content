@@ -1,0 +1,19 @@
+const app = require('../../app.module');
+(() => {
+    app.directive('app:camel', app:camelDirective);
+
+    app:camelDirective.$inject = [];
+
+    function app:camelDirective() {
+        return {
+            restrict: 'AEC',
+            template: require('./:kebap.directive.html'),
+            scope: {},
+            link: link
+        }
+    }
+
+    function link(scope, element, attributes) {
+
+    }
+})();

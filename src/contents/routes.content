@@ -1,0 +1,14 @@
+const app = require('./app.module');
+(() => {
+    app.config(routerConfig);
+    routerConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
+
+    function routerConfig($stateProvider, $urlRouterProvider) {
+        $urlRouterProvider.otherwise('/');
+        $stateProvider
+            .state('home', {
+                url: '/',
+                template: '<app-page-home></app-page-home>'
+            })
+    }
+})();

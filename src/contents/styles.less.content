@@ -1,0 +1,2 @@
+@import "app/styles/global.less";
+@import "app/styles/components.less";

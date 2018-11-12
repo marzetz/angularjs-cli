@@ -1,0 +1,2 @@
+@import "../components/root/root.component.less";
+@import "../components/page-home/page-home.component.less";

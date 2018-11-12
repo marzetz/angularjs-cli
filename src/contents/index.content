@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html data-ng-app=":camel">
+<head>
+    <meta charset="UTF-8">
+    <title>:camel</title>
+</head>
+<body>
+    <app-root></app-root>
+    <script src="vendor.bundle.js" type="application/javascript"></script>
+    <script src="app.bundle.js" type="application/javascript"></script>
+</body>
+</html>

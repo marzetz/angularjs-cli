@@ -1,0 +1,16 @@
+const app = require('../../app.module');
+(() => {
+    app.component('app:camel', {
+        template: require('./:kebap.component.html'),
+        controller: app:camelController,
+        bindings: {}
+    });
+
+    app:camelController.$inject = [];
+
+    function app:camelController() {
+
+        this.$onInit = () => {
+        }
+    }
+})();

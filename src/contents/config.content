@@ -1,0 +1,8 @@
+{
+    "appNames": {
+        "kebap": ":kebap",
+        "camel": ":camel",
+        "snake": ":snake",
+        "capitalized": ":capitalized"
+    }
+}

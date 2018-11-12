@@ -1,0 +1,10 @@
+const app = require('../../app.module');
+(() => {
+    app.provider('app:camel', app:camelProvider);
+
+    app:camelProvider.$inject = [];
+
+    function app:camelProvider() {
+        this.name = 'app:camelProvider';
+    }
+})();

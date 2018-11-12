@@ -1,0 +1,6 @@
+const app = require('../../app.module');
+(() => {
+    const app:camelConstant = {};
+
+    app.constant('APP_:capitalized', app:camelConstant);
+})();

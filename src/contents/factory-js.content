@@ -1,0 +1,14 @@
+const app = require('../../app.module');
+(() => {
+    app.factory('app:camel', app:camelFactory);
+
+    app:camelFactory.$inject = [];
+
+    function app:camelFactory() {
+        return new App:camel();
+
+        function App:camel() {
+            this.name = 'app:camelFactory';
+        }
+    }
+})();

@@ -1,0 +1,2 @@
+@import "../components/root/root.component.css";
+@import "../components/page-home/page-home.component.css";
