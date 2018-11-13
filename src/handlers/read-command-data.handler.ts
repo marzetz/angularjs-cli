@@ -33,6 +33,10 @@ async function getPathAndProject(args: ICommandArguments): Promise<{ path: strin
 
     for (let i = 0; i < partsLength; i++) {
         if (await Tools.exists(Tools.path.resolve(`${_path}/.angularjs-cli.json`))) {
+            /**
+             * Get project config if exists;
+             */
+            args.config = JSON.parse(await Tools.readFile(Tools.path.resolve(`${_path}/.angularjs-cli.json`), 'utf-8'));
             exists = true;
             break;
         }

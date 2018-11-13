@@ -4,5 +4,6 @@
         "camel": ":camel",
         "snake": ":snake",
         "capitalized": ":capitalized"
-    }
+    },
+    "style": ":styleExtension"
 }

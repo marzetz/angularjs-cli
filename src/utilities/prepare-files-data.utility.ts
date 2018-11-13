@@ -37,7 +37,8 @@ async function prepareFilesNew(args: ICommandArguments, path: string, root: bool
             {replace: /:kebap/g, value: args.name.kebap},
             {replace: /:camel/g, value: args.name.camel},
             {replace: /:snake/g, value: args.name.snake},
-            {replace: /:capitalized/g, value: args.name.capitalized}
+            {replace: /:capitalized/g, value: args.name.capitalized},
+            {replace: /:styleExtension/g, value: styleExtension}
         ],
     };
 
@@ -212,8 +213,17 @@ async function prepareFilesNew(args: ICommandArguments, path: string, root: bool
 }
 
 async function prepareFilesGenerate(args: ICommandArguments, path: string, root: boolean, project: boolean): Promise<ICommandFile[]> {
-    let files: ICommandFile[] = [];
-    let directory = `${path}/${args.name.kebap}`;
+    let files: ICommandFile[] = [],
+        directory = `${process.cwd()}/${args.name.kebap}`;
+
+    // @TODO: Change additional arguments from array to object;
+    // @TODO: User can't generate structure inside a project with style's extension other than declared when project was created;
+    let styleExtension: string = 'css';
+    args.additional.forEach(async property => {
+        if (property.key === ECommandAdditionalArguments.STYLE) styleExtension = property.value as string;
+    });
+
+    if (args.config) styleExtension = args.config.style;
 
     switch (args.type) {
         case ECommandTypes.COMPONENT:
@@ -249,7 +259,6 @@ async function prepareFilesGenerate(args: ICommandArguments, path: string, root:
     return files;
 
     async function getComponentFiles(directory: string, path: string, project: boolean): Promise<ICommandFile[]> {
-
         const componentHtml: ICommandFile = {
             directory: directory,
             name: `${args.name.kebap}.component`,
@@ -274,28 +283,29 @@ async function prepareFilesGenerate(args: ICommandArguments, path: string, root:
         const componentStyle: ICommandFile = {
             directory: directory,
             name: `${args.name.kebap}.component`,
-            // @TODO: Change extension
-            extension: 'scss',
+            extension: styleExtension,
             content: await Tools.readFile(Tools.path.resolve(`${__dirname}/../contents/component-style.content`), 'utf-8'),
             params: [
                 {replace: /:kebap/g, value: args.name.kebap}
             ]
         };
 
-        args.additional.forEach(async property => {
-            if (property.key === ECommandAdditionalArguments.STYLE) {
-                if (project) {
-                    componentJs.import = {
-                        path: Tools.path.resolve(`${path}/app.imports.js`),
-                        value: `\nrequire('./src/app/components/${args.name.kebap}/${args.name.kebap}.component.js');`
-                    };
-                    componentStyle.import = {
-                        path: Tools.path.resolve(`${path}/src/app/styles/components.scss`),
-                        value: `\n@import "../components/${args.name.kebap}/${args.name.kebap}.component";`
-                    };
-                }
-            }
-        });
+        // @TODO: Implement 'skip-import' additional option;
+        if (project) {
+            const
+                relativePathJs = Tools.path.relative(path, `${directory}/${args.name.kebap}.component.js`),
+                relativePathStyle = Tools.path.relative(`${path}/src/app/styles`, `${directory}/${args.name.kebap}.component.${styleExtension}`);
+
+            componentJs.import = {
+                path: Tools.path.resolve(`${path}/app.imports.js`),
+                value: `\nrequire('${relativePathJs}');`,
+
+            };
+            componentStyle.import = {
+                path: Tools.path.resolve(`${path}/src/app/styles/components.${styleExtension}`),
+                value: `\n@import "${relativePathStyle}";`
+            };
+        }
 
         return [componentHtml, componentJs, componentStyle];
     }
@@ -322,10 +332,12 @@ async function prepareFilesGenerate(args: ICommandArguments, path: string, root:
             ]
         };
 
+        // @TODO: Implement 'skip-import' additional option;
         if (project) {
+            const relativePathJs = Tools.path.relative(path, `${directory}/${args.name.kebap}.directive.js`);
             directiveJs.import = {
                 path: Tools.path.resolve(`${path}/app.imports.js`),
-                value: `\nrequire('./src/app/directives/${args.name.kebap}/${args.name.kebap}.directive.js');`
+                value: `\nrequire('${relativePathJs}');`
             }
         }
 
@@ -343,10 +355,12 @@ async function prepareFilesGenerate(args: ICommandArguments, path: string, root:
             ]
         };
 
+        // @TODO: Implement 'skip-import' additional option;
         if (project) {
+            const relativePathJs = Tools.path.relative(path, `${directory}/${args.name.kebap}.filter.js`);
             filterJs.import = {
                 path: Tools.path.resolve(`${path}/app.imports.js`),
-                value: `\nrequire('./src/app/filters/${args.name.kebap}/${args.name.kebap}.filter.js');`
+                value: `\nrequire('${relativePathJs}');`
             }
         }
 
@@ -365,10 +379,12 @@ async function prepareFilesGenerate(args: ICommandArguments, path: string, root:
             ]
         };
 
+        // @TODO: Implement 'skip-import' additional option;
         if (project) {
+            const relativePathJs = Tools.path.relative(path, `${directory}/${args.name.kebap}.constant.js`);
             constantJs.import = {
-                path: Tools.path.resolve(`${root}/app.imports.js`),
-                value: `\nrequire('./src/app/constants/${args.name.kebap}/${args.name.kebap}.constant.js');`
+                path: Tools.path.resolve(`${path}/app.imports.js`),
+                value: `\nrequire('${relativePathJs}');`
             }
         }
 
@@ -386,10 +402,12 @@ async function prepareFilesGenerate(args: ICommandArguments, path: string, root:
             ]
         };
 
+        // @TODO: Implement 'skip-import' additional option;
         if (project) {
+            const relativePathJs = Tools.path.relative(path, `${directory}/${args.name.kebap}.service.js`);
             serviceJs.import = {
-                path: Tools.path.resolve(`${root}/app.imports.js`),
-                value: `\nrequire('./src/app/services/${args.name.kebap}/${args.name.kebap}.service.js');`
+                path: Tools.path.resolve(`${path}/app.imports.js`),
+                value: `\nrequire('${relativePathJs}');`
             }
         }
 
@@ -407,10 +425,12 @@ async function prepareFilesGenerate(args: ICommandArguments, path: string, root:
             ]
         };
 
+        // @TODO: Implement 'skip-import' additional option;
         if (project) {
+            const relativePathJs = Tools.path.relative(path, `${directory}/${args.name.kebap}.provider.js`);
             providerJs.import = {
-                path: Tools.path.resolve(`${root}/app.imports.js`),
-                value: `\nrequire('./src/app/providers/${args.name.kebap}/${args.name.kebap}.provider.js');`
+                path: Tools.path.resolve(`${path}/app.imports.js`),
+                value: `\nrequire('${relativePathJs}');`
             }
         }
 
@@ -428,10 +448,12 @@ async function prepareFilesGenerate(args: ICommandArguments, path: string, root:
             ]
         };
 
+        // @TODO: Implement 'skip-import' additional option;
         if (project) {
+            const relativePathJs = Tools.path.relative(path, `${directory}/${args.name.kebap}.factory.js`);
             factoryJs.import = {
-                path: Tools.path.resolve(`${root}/app.imports.js`),
-                value: `\nrequire('./src/app/factories/${args.name.kebap}/${args.name.kebap}.factory.js');`
+                path: Tools.path.resolve(`${path}/app.imports.js`),
+                value: `\nrequire('${relativePathJs}');`
             }
         }
 

@@ -9,4 +9,5 @@ export enum ECommandArguments {
     TYPE = 'type',
     NAME = 'name',
     ADDITIONAL = 'additional',
+    CONFIG = 'config',
 }
