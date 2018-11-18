@@ -2,9 +2,7 @@ import {Tools} from "../utilities/tools.utility";
 import {ProjectExistsError} from "../errors/project-exists.error";
 import {prepareFilesDataUtility} from "../utilities/prepare-files-data.utility";
 import {
-    ECommandAdditionalArguments,
     ECommandCores,
-    ICommandAdditionalArgument,
     ICommandArguments,
     ICommandData,
     ICommandFile
@@ -63,12 +61,6 @@ async function getFiles(args: ICommandArguments, path: string, root: boolean, pr
 }
 
 function getDependencies(args: ICommandArguments): boolean {
-    let dependencies = false;
-    if (typeof args.additional === "undefined") return dependencies;
-
-    args.additional
-        .forEach((option: ICommandAdditionalArgument) => {
-            if (option.key === ECommandAdditionalArguments.DEPENDENCIES) dependencies = !!option.value;
-        });
-    return dependencies;
+    if (typeof args.additional === "undefined") return false;
+    return (args.additional.dependencies === 'true');
 }

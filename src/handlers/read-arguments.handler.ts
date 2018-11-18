@@ -6,7 +6,7 @@ import {
     CAdditionalKeys, ECommandAdditionalArguments,
     ECommandArguments,
     ECommandCores,
-    ECommandTypes, ICommandAdditionalArgument, ICommandAdditionalArguments,
+    ECommandTypes, ICommandAdditionalArguments,
     ICommandArguments, ICommandNames
 } from "../utilities/data-enums-interfaces.utility";
 
@@ -30,7 +30,7 @@ export function readArgumentsHandler(): ICommandArguments {
         [ECommandArguments.CORE]: core,
         [ECommandArguments.TYPE]: type ? type : '',
         [ECommandArguments.NAME]: name ? name : {camel: '', kebap: '', snake: '', capitalized: ''},
-        [ECommandArguments.ADDITIONAL]: additional ? additional : []
+        [ECommandArguments.ADDITIONAL]: additional ? additional : undefined
     };
 }
 
@@ -108,7 +108,7 @@ function getName(mainArgs: string[], core: ECommandCores): ICommandNames | undef
  */
 function getAdditional(additionalArgs: string[], core: ECommandCores): ICommandAdditionalArguments | undefined {
     if (core === ECommandCores.INFO) return undefined;
-    let result: ICommandAdditionalArguments = [];
+    let result: ICommandAdditionalArguments = {};
     additionalArgs.forEach((item: string) => {
         if (item.indexOf('--') === 0) {
             item = item.replace('--', '');
@@ -119,20 +119,16 @@ function getAdditional(additionalArgs: string[], core: ECommandCores): ICommandA
 
         const splitted = item.split('=');
 
+        /**
+         * Check if specific option is available for currently triggered command;
+         */
         if (CAdditionalKeys[core]) {
             if (CAdditionalKeys[core].indexOf(splitted[0] as ECommandAdditionalArguments) === -1) {
                 throw new CommandArgumentError(`Option '${splitted[0]}' is not allowed in '${core}' command.`);
             }
         }
 
-        const prepared: ICommandAdditionalArgument = {
-            key: splitted[0] as ECommandAdditionalArguments,
-            value: true
-        };
-
-        if (splitted[1]) prepared.value = splitted[1];
-
-        result.push(prepared);
+        result[splitted[0]] = splitted[1] ? splitted[1] : true;
     });
 
     result = overrideDefaultOptionsUtility(core, result);

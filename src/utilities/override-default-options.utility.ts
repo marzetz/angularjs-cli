@@ -2,7 +2,6 @@ import {CommandArgumentError} from "../errors/command-argument.error";
 import {
     CAdditionalKeys, CDefaultOptions,
     ECommandCores,
-    ICommandAdditionalArgument,
     ICommandAdditionalArguments
 } from "./data-enums-interfaces.utility";
 
@@ -12,22 +11,18 @@ import {
  * @param core
  * @param override
  */
-export function overrideDefaultOptionsUtility(core: ECommandCores, override: ICommandAdditionalArgument[]): ICommandAdditionalArguments {
+export function overrideDefaultOptionsUtility(core: ECommandCores, override: ICommandAdditionalArguments): ICommandAdditionalArguments {
     const
-        result: ICommandAdditionalArguments = [],
+        result: ICommandAdditionalArguments = {},
         keys = CAdditionalKeys[core];
 
     keys.forEach((key: string) => {
         if (typeof CDefaultOptions[key] === 'undefined') throw new CommandArgumentError(`Option '${key}' hasn't any default value.`);
-        const prepared = {
-            key: key,
-            value: CDefaultOptions[key]
-        };
-        override.forEach((item: ICommandAdditionalArgument) => {
-            if (item.key === prepared.key) prepared.value = item.value;
-        });
+        result[key] = CDefaultOptions[key];
 
-        result.push(prepared as ICommandAdditionalArgument);
+        if (override[key]) {
+            result[key] = override[key];
+        }
     });
 
     return result;

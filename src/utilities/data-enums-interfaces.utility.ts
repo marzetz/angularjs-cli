@@ -40,31 +40,30 @@ export const CAdditionalKeys = {
     ]
 };
 
-export const CAdditionalStyle = [
-    'css',
-    'scss',
-    'less'
-];
-
 export const CDefaultOptions = {
     [ECommandAdditionalArguments.STYLE]: 'css',
     [ECommandAdditionalArguments.SKIP_IMPORT]: false,
-    [ECommandAdditionalArguments.DEPENDENCIES]: false,
+    [ECommandAdditionalArguments.DEPENDENCIES]: true,
 };
 
-// INTERFACES
-export interface ICommandAdditionalArgument {
-    key: ECommandAdditionalArguments,
-    value: string | boolean
+export enum ECommandAdditionalArgumentsStyle {
+    CSS = 'css',
+    LESS = 'less',
+    SCSS = 'scss'
 }
 
-export type ICommandAdditionalArguments = ICommandAdditionalArgument[];
+// INTERFACES
+export interface ICommandAdditionalArguments {
+    [ECommandAdditionalArguments.STYLE]?: ECommandAdditionalArgumentsStyle,
+    [ECommandAdditionalArguments.DEPENDENCIES]?: boolean | string,
+    [ECommandAdditionalArguments.SKIP_IMPORT]?: boolean | string
+}
 
 export interface ICommandArguments {
     [ECommandArguments.CORE]: string;
     [ECommandArguments.TYPE]: string;
     [ECommandArguments.NAME]: ICommandNames;
-    [ECommandArguments.ADDITIONAL]: ICommandAdditionalArguments;
+    [ECommandArguments.ADDITIONAL]?: ICommandAdditionalArguments;
     [ECommandArguments.CONFIG]?: ICommandConfig;
 }
 
@@ -75,7 +74,7 @@ export interface ICommandConfig {
         snake: string;
         capitalized: string;
     };
-    style: string;
+    style: ECommandAdditionalArgumentsStyle;
 }
 
 export interface ICommandData {
@@ -92,8 +91,8 @@ export interface ICommandFile {
     name: string;
     extension?: string;
     content?: string;
-    params?: {replace: RegExp, value: string}[],
-    import?: {path: string, value: string}
+    params?: { replace: RegExp, value: string }[],
+    import?: { path: string, value: string }
 }
 
 export interface ICommandNames {
