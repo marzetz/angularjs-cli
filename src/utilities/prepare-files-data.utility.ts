@@ -218,6 +218,8 @@ async function prepareFilesGenerate(args: ICommandArguments, path: string, root:
     let styleExtension: ECommandAdditionalArgumentsStyle = args.additional && args.additional.style
         ? args.additional.style
         : ECommandAdditionalArgumentsStyle.CSS;
+    
+    const additionalImport = args.additional && args.additional[ECommandAdditionalArguments.SKIP_IMPORT] === 'true';
 
     /**
      * Override declared style extension;
@@ -289,10 +291,7 @@ async function prepareFilesGenerate(args: ICommandArguments, path: string, root:
             ]
         };
 
-        if (project
-            && (!args.additional
-                || !args.additional[ECommandAdditionalArguments.SKIP_IMPORT]
-                || args.additional[ECommandAdditionalArguments.SKIP_IMPORT]) === 'true') {
+        if (project && !additionalImport) {
 
             const
                 relativePathJs = Tools.path.relative(path, `${directory}/${args.name.kebap}.component.js`),
@@ -334,10 +333,7 @@ async function prepareFilesGenerate(args: ICommandArguments, path: string, root:
             ]
         };
 
-        if (project
-            && (!args.additional
-                || !args.additional[ECommandAdditionalArguments.SKIP_IMPORT]
-                || args.additional[ECommandAdditionalArguments.SKIP_IMPORT]) === 'true') {
+        if (project && !additionalImport) {
 
             const relativePathJs = Tools.path.relative(path, `${directory}/${args.name.kebap}.directive.js`);
             directiveJs.import = {
@@ -360,10 +356,7 @@ async function prepareFilesGenerate(args: ICommandArguments, path: string, root:
             ]
         };
 
-        if (project
-            && (!args.additional
-                || !args.additional[ECommandAdditionalArguments.SKIP_IMPORT]
-                || args.additional[ECommandAdditionalArguments.SKIP_IMPORT]) === 'true') {
+        if (project && !additionalImport) {
 
             const relativePathJs = Tools.path.relative(path, `${directory}/${args.name.kebap}.filter.js`);
             filterJs.import = {
@@ -387,10 +380,7 @@ async function prepareFilesGenerate(args: ICommandArguments, path: string, root:
             ]
         };
 
-        if (project
-            && (!args.additional
-                || !args.additional[ECommandAdditionalArguments.SKIP_IMPORT]
-                || args.additional[ECommandAdditionalArguments.SKIP_IMPORT]) === 'true') {
+        if (project && !additionalImport) {
 
             const relativePathJs = Tools.path.relative(path, `${directory}/${args.name.kebap}.constant.js`);
             constantJs.import = {
@@ -413,10 +403,7 @@ async function prepareFilesGenerate(args: ICommandArguments, path: string, root:
             ]
         };
 
-        if (project
-            && (!args.additional
-                || !args.additional[ECommandAdditionalArguments.SKIP_IMPORT]
-                || args.additional[ECommandAdditionalArguments.SKIP_IMPORT]) === 'true') {
+        if (project && !additionalImport) {
 
             const relativePathJs = Tools.path.relative(path, `${directory}/${args.name.kebap}.service.js`);
             serviceJs.import = {
@@ -439,10 +426,7 @@ async function prepareFilesGenerate(args: ICommandArguments, path: string, root:
             ]
         };
 
-        if (project
-            && (!args.additional
-                || !args.additional[ECommandAdditionalArguments.SKIP_IMPORT]
-                || args.additional[ECommandAdditionalArguments.SKIP_IMPORT]) === 'true') {
+        if (project && !additionalImport) {
 
             const relativePathJs = Tools.path.relative(path, `${directory}/${args.name.kebap}.provider.js`);
             providerJs.import = {
@@ -465,10 +449,7 @@ async function prepareFilesGenerate(args: ICommandArguments, path: string, root:
             ]
         };
 
-        if (project
-            && (!args.additional
-                || !args.additional[ECommandAdditionalArguments.SKIP_IMPORT]
-                || args.additional[ECommandAdditionalArguments.SKIP_IMPORT]) === 'true') {
+        if (project && !additionalImport) {
 
             const relativePathJs = Tools.path.relative(path, `${directory}/${args.name.kebap}.factory.js`);
             factoryJs.import = {
