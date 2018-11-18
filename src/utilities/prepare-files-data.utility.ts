@@ -299,7 +299,7 @@ async function prepareFilesGenerate(args: ICommandArguments, path: string, root:
 
             componentJs.import = {
                 path: Tools.path.resolve(`${path}/app.imports.js`),
-                value: `\nrequire('${relativePathJs}');`,
+                value: `\nrequire('./${relativePathJs}');`,
 
             };
             componentStyle.import = {
@@ -338,7 +338,7 @@ async function prepareFilesGenerate(args: ICommandArguments, path: string, root:
             const relativePathJs = Tools.path.relative(path, `${directory}/${args.name.kebap}.directive.js`);
             directiveJs.import = {
                 path: Tools.path.resolve(`${path}/app.imports.js`),
-                value: `\nrequire('${relativePathJs}');`
+                value: `\nrequire('./${relativePathJs}');`
             }
         }
 
@@ -361,7 +361,7 @@ async function prepareFilesGenerate(args: ICommandArguments, path: string, root:
             const relativePathJs = Tools.path.relative(path, `${directory}/${args.name.kebap}.filter.js`);
             filterJs.import = {
                 path: Tools.path.resolve(`${path}/app.imports.js`),
-                value: `\nrequire('${relativePathJs}');`
+                value: `\nrequire('./${relativePathJs}');`
             }
         }
 
@@ -385,7 +385,7 @@ async function prepareFilesGenerate(args: ICommandArguments, path: string, root:
             const relativePathJs = Tools.path.relative(path, `${directory}/${args.name.kebap}.constant.js`);
             constantJs.import = {
                 path: Tools.path.resolve(`${path}/app.imports.js`),
-                value: `\nrequire('${relativePathJs}');`
+                value: `\nrequire('./${relativePathJs}');`
             }
         }
 
@@ -408,7 +408,7 @@ async function prepareFilesGenerate(args: ICommandArguments, path: string, root:
             const relativePathJs = Tools.path.relative(path, `${directory}/${args.name.kebap}.service.js`);
             serviceJs.import = {
                 path: Tools.path.resolve(`${path}/app.imports.js`),
-                value: `\nrequire('${relativePathJs}');`
+                value: `\nrequire('./${relativePathJs}');`
             }
         }
 
@@ -431,7 +431,7 @@ async function prepareFilesGenerate(args: ICommandArguments, path: string, root:
             const relativePathJs = Tools.path.relative(path, `${directory}/${args.name.kebap}.provider.js`);
             providerJs.import = {
                 path: Tools.path.resolve(`${path}/app.imports.js`),
-                value: `\nrequire('${relativePathJs}');`
+                value: `\nrequire('./${relativePathJs}');`
             }
         }
 
@@ -454,7 +454,7 @@ async function prepareFilesGenerate(args: ICommandArguments, path: string, root:
             const relativePathJs = Tools.path.relative(path, `${directory}/${args.name.kebap}.factory.js`);
             factoryJs.import = {
                 path: Tools.path.resolve(`${path}/app.imports.js`),
-                value: `\nrequire('${relativePathJs}');`
+                value: `\nrequire('./${relativePathJs}');`
             }
         }
 
