@@ -1,17 +1,14 @@
-import {
-    ICommandAdditionalArgument,
-    ICommandAdditionalArguments,
-    ICommandArguments
-} from "../interfaces/command-arguments.interface";
-import {ECommandAdditionalArguments, ECommandArguments} from "../enums/command-arguments.enum";
-import {ECommandCores} from "../enums/command-cores.enum";
-import {ECommandTypes} from "../enums/command-types.enum";
 import {splitArgumentsUtility} from "../utilities/split-arguments.utility";
 import {CommandArgumentError} from "../errors/command-argument.error";
-import {CAdditionalKeys} from "../constants/additional-keys.constant";
-import {ICommandNames} from "../interfaces/command-names.interface";
 import {prepareNameUtility} from "../utilities/prepare-name.utility";
 import {overrideDefaultOptionsUtility} from "../utilities/override-default-options.utility";
+import {
+    CAdditionalKeys, ECommandAdditionalArguments,
+    ECommandArguments,
+    ECommandCores,
+    ECommandTypes, ICommandAdditionalArgument, ICommandAdditionalArguments,
+    ICommandArguments, ICommandNames
+} from "../utilities/data-enums-interfaces.utility";
 
 /**
  * Returns prepared command arguments;

@@ -1,8 +1,10 @@
-import {ECommandCores} from "../enums/command-cores.enum";
-import {ICommandAdditionalArgument, ICommandAdditionalArguments} from "../interfaces/command-arguments.interface";
-import {CAdditionalKeys} from "../constants/additional-keys.constant";
-import {CDefaultOptions} from "../constants/default-options.constant";
 import {CommandArgumentError} from "../errors/command-argument.error";
+import {
+    CAdditionalKeys, CDefaultOptions,
+    ECommandCores,
+    ICommandAdditionalArgument,
+    ICommandAdditionalArguments
+} from "./data-enums-interfaces.utility";
 
 /**
  * Prepares all options for a command;

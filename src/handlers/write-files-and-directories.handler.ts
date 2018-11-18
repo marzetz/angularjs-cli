@@ -1,7 +1,6 @@
-import {ICommandData} from "../interfaces/command-data.interface";
-import {ICommandFile} from "../interfaces/command-file.interface";
 import {Tools} from "../utilities/tools.utility";
 import {FileExistsError} from "../errors/file-exists.error";
+import {ICommandData, ICommandFile} from "../utilities/data-enums-interfaces.utility";
 
 export async function writeFilesAndDirectoriesHandler(data: ICommandData): Promise<void> {
     const filesLength = data.files.length;

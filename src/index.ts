@@ -3,8 +3,9 @@
 import {readArgumentsHandler} from "./handlers/read-arguments.handler";
 import {readCommandDataHandler} from "./handlers/read-command-data.handler";
 import {writeFilesAndDirectoriesHandler} from "./handlers/write-files-and-directories.handler";
-import {ECommandCores} from "./enums/command-cores.enum";
 import {callInfoCommandHandler} from "./handlers/call-info-command.handler";
+import {ECommandCores} from "./utilities/data-enums-interfaces.utility";
+import chalk from "chalk";
 
 async function run(): Promise<void> {
     const args = readArgumentsHandler();
@@ -15,10 +16,13 @@ async function run(): Promise<void> {
     }
 
     const commandData = await readCommandDataHandler(args);
-
-    // @TODO: Override structures with passed options
-
     await writeFilesAndDirectoriesHandler(commandData);
 }
 
-run();
+(async () => {
+    try {
+        await run();
+    } catch (e) {
+        console.error(chalk.red(e));
+    }
+})();

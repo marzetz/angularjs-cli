@@ -1,9 +1,10 @@
-import {ICommandArguments} from "../interfaces/command-arguments.interface";
-import {ECommandCores} from "../enums/command-cores.enum";
-import {ICommandFile} from "../interfaces/command-file.interface";
 import {Tools} from "./tools.utility";
-import {ECommandTypes} from "../enums/command-types.enum";
-import {ECommandAdditionalArguments} from "../enums/command-arguments.enum";
+import {
+    ECommandAdditionalArguments,
+    ECommandCores, ECommandTypes,
+    ICommandArguments,
+    ICommandFile
+} from "./data-enums-interfaces.utility";
 
 export async function prepareFilesDataUtility(args: ICommandArguments, path: string, root: boolean, project: boolean): Promise<ICommandFile[]> {
     let files: ICommandFile[] = [];

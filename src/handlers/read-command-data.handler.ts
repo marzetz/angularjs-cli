@@ -1,11 +1,14 @@
-import {ICommandAdditionalArgument, ICommandArguments} from "../interfaces/command-arguments.interface";
-import {ICommandData} from "../interfaces/command-data.interface";
-import {ECommandCores} from "../enums/command-cores.enum";
-import {ICommandFile} from "../interfaces/command-file.interface";
 import {Tools} from "../utilities/tools.utility";
-import {ECommandAdditionalArguments} from "../enums/command-arguments.enum";
 import {ProjectExistsError} from "../errors/project-exists.error";
 import {prepareFilesDataUtility} from "../utilities/prepare-files-data.utility";
+import {
+    ECommandAdditionalArguments,
+    ECommandCores,
+    ICommandAdditionalArgument,
+    ICommandArguments,
+    ICommandData,
+    ICommandFile
+} from "../utilities/data-enums-interfaces.utility";
 
 export async function readCommandDataHandler(args: ICommandArguments): Promise<ICommandData> {
     const

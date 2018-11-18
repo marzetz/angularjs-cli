@@ -1,4 +1,4 @@
-import {ICommandNames} from "../interfaces/command-names.interface";
+import {ICommandNames} from "./data-enums-interfaces.utility";
 
 export function prepareNameUtility(name: string): ICommandNames {
     return {
