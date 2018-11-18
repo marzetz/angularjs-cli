@@ -21,6 +21,9 @@ export async function prepareFilesDataUtility(args: ICommandArguments, path: str
     return files;
 }
 
+/**
+ * @TODO: Move ICommandFile[] declarations to another file, it takes too much space in here;
+ */
 async function prepareFilesNew(args: ICommandArguments, path: string, root: boolean): Promise<ICommandFile[]> {
 
     let styleExtension: ECommandAdditionalArgumentsStyle = args.additional && args.additional.style
