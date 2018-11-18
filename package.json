@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "bin": {
-    "ajs": "./build/index.js"
+    "ajs": "index.js"
   },
   "dependencies": {
     "chalk": "^2.4.1",
@@ -13,7 +13,6 @@
     "ora": "^3.0.0"
   },
   "devDependencies": {
-    "@types/chalk": "^2.2.0",
     "@types/figlet": "^1.2.0",
     "@types/node": "^10.12.1",
     "@types/ora": "^1.3.4",
@@ -25,6 +24,6 @@
     "build": "./node_modules/.bin/tsc && yarn build:contents && yarn build:readme && yarn build:package",
     "build:contents": "cp -R ./src/contents ./build",
     "build:readme": "cp ./README.md ./build",
-    "build:package": "cp ./package.json ./build && cd build && yarn install --production=true"
+    "build:package": "cp ./package.json ./build"
   }
 }
