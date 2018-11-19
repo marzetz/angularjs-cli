@@ -46,7 +46,7 @@ export class CommandFilesGenerateClass {
             case ECommandTypes.FILTER:
                 return await this.filesFilter();
             case ECommandTypes.CONSTANT:
-                return await this.filesCostant();
+                return await this.filesConstant();
             case ECommandTypes.SERVICE:
                 return await this.filesService();
             case ECommandTypes.PROVIDER:
@@ -121,7 +121,7 @@ export class CommandFilesGenerateClass {
             extension: 'html',
             content: await Tools.readFile(Tools.path.resolve(`${__dirname}/../contents/directive-html.content`), 'utf-8'),
             params: [
-                {replace: /:kebap/g, value: this.args.name.kebap}
+                {replace: /:camel/g, value: this.args.name.camel}
             ]
         };
 
@@ -173,7 +173,7 @@ export class CommandFilesGenerateClass {
         return [filterJs];
     }
 
-    private async filesCostant(): Promise<ICommandFile[]> {
+    private async filesConstant(): Promise<ICommandFile[]> {
         if (this.root) this.directory = `${this.path}/src/app/constants/${this.args.name.kebap}`;
 
         const constantJs: ICommandFile = {
