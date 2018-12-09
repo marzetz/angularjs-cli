@@ -22,7 +22,7 @@ async function run(): Promise<void> {
     spinner.setText('Writing files and directories...');
     await writeFilesAndDirectoriesHandler(commandData);
 
-    if (args.core === ECommandCores.NEW && args.additional && args.additional.dependencies) {
+    if (args.core === ECommandCores.NEW && commandData.dependencies) {
         spinner.setText('Installing dependencies...');
         await Tools.exec(`cd ${args.name.kebap}; yarn install;`);
     }
