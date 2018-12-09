@@ -7,26 +7,34 @@ import {callInfoCommandHandler} from "./handlers/call-info-command.handler";
 import {ECommandCores} from "./utilities/data-enums-interfaces.utility";
 import chalk from "chalk";
 import {Tools} from "./utilities/tools.utility";
+import {spinner} from "./class/command-spinner.class";
 
 async function run(): Promise<void> {
     const args = readArgumentsHandler();
 
     if (args.core === ECommandCores.INFO) {
-        callInfoCommandHandler();
+        await callInfoCommandHandler();
         return;
     }
 
+    spinner.start('Reading command...');
     const commandData = await readCommandDataHandler(args);
+    spinner.setText('Writing files and directories...');
     await writeFilesAndDirectoriesHandler(commandData);
 
-    if (args.core === ECommandCores.NEW)
+    if (args.core === ECommandCores.NEW && args.additional && args.additional.dependencies) {
+        spinner.setText('Installing dependencies...');
         await Tools.exec(`cd ${args.name.kebap}; yarn install;`);
+    }
 }
 
 (async () => {
     try {
         await run();
+        spinner.setSucceed('Success!');
     } catch (e) {
+        spinner.setFail('Failure!');
         console.error(chalk.red(e));
     }
+    process.exit();
 })();

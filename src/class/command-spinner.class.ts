@@ -1,21 +1,11 @@
 import ora = require("ora");
 
-export enum SpinnerColor {
-    BLACK = 'black',
-    RED = 'red',
-    GREEN = 'green',
-    YELLOW = 'yellow',
-    BLUE = 'blue',
-    MAGENTA = 'magenta',
-    CYAN = 'cyan',
-    WHITE = 'white',
-    GRAY = 'gray',
-}
-
 class CommandSpinner {
     private spinner: any;
 
     constructor() {
+        if (!this.spinner)
+            this.spinner = ora().start();
     }
 
     public start(text: string) {
@@ -28,12 +18,10 @@ class CommandSpinner {
 
     public setSucceed(text: string) {
         this.spinner.succeed(text);
-        this.spinner = undefined;
     }
 
     public setFail(text: string) {
         this.spinner.fail(text);
-        this.spinner = undefined;
     }
 }
 
