@@ -23,7 +23,7 @@
   },
   "scripts": {
     "watch": "./node_modules/.bin/tsc-watch",
-    "build": "./node_modules/.bin/tsc && yarn build:contents",
+    "build": "./node_modules/.bin/tsc && npm run build:contents",
     "build:contents": "cp -R ./src/contents ./build",
     "semantic-release": "semantic-release",
     "travis-deploy-once": "travis-deploy-once"
