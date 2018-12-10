@@ -29,6 +29,7 @@ yarn start
 ```
 
 ***Additional options:***
+
 | Name           | Available values    | Default | Description                                                                  | Example                                      |
 |----------------|---------------------|---------|------------------------------------------------------------------------------|----------------------------------------------|
 | `dependencies` | `true` `false`      | `true`  | Determines whether project's dependencies should be installed on your new project init | `ajs new my-new-project -dependencies=false` |
@@ -104,10 +105,11 @@ ajs g factory my-new-factory
 
 
 ***Additional options:***
-| Name          | Available values    | Default | Description                                                                             | Example                             | Comments                                                                                                                                                                                              |
+
+| Name | Available values | Default | Description | Example | Comments |
 |---------------|---------------------|---------|-----------------------------------------------------------------------------------------|-------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `style`       | `css` `less` `scss` | `css`   | Determines style extension of your new files schema                                     | `ajs g component -style=scss`       | - Works only with `component`; - If you are generating new component inside your AngularJS CLI project directory and you already declared style extension on project init, this option will not work; |
-| `skip-import` | `true` `false`      | `false` | Determines whether created files will be imported to the files prepared for compilation | `ajs g component -skip-import=true` | - Import works only inside projects generated with AngularJS CLI;                                                                                                                                     |
+| `style` | `css` `less` `scss` | `css` | Determines style extension of your new files schema | `ajs g component -style=scss` | - Works only with `component`; - If you are generating new component inside your AngularJS CLI project directory and you already declared style extension on project init, this option will not work; |
+| `skip-import` | `true` `false` | `false` | Determines whether created files will be imported to the files prepared for compilation | `ajs g component -skip-import=true` | - Import works only inside projects generated with AngularJS CLI; |
 
 ## Credits  
   
