@@ -30,13 +30,6 @@ yarn start
 
 ***Additional options:***
 
-<style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
-.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
-.tg .tg-xldj{border-color:inherit;text-align:left}
-.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
-</style>
 <table class="tg">
   <tr>
     <th class="tg-xldj">Name</th>
@@ -46,18 +39,18 @@ yarn start
     <th class="tg-0pky">Example</th>
   </tr>
   <tr>
-    <td class="tg-xldj">`style`</td>
-    <td class="tg-xldj">`css`<br>`less`<br>`scss`</td>
-    <td class="tg-xldj">`css`</td>
+    <td class="tg-xldj"><i>style</i></td>
+    <td class="tg-xldj"><i>css</i><br><i>less</i><br><i>scss</i></td>
+    <td class="tg-xldj"><i>css</i></td>
     <td class="tg-0pky">Determines style extension of your new files schema</td>
-    <td class="tg-0pky">`ajs g component -style=scss`</td>
+    <td class="tg-0pky"><i>ajs g component -style=scss</i></td>
   </tr>
   <tr>
-    <td class="tg-xldj">`dependencies`</td>
-    <td class="tg-xldj">`true`<br>`false`</td>
-    <td class="tg-xldj">`true`</td>
+    <td class="tg-xldj"><i>dependencies</i></td>
+    <td class="tg-xldj"><i>true</i><br><i>false</i></td>
+    <td class="tg-xldj"><i>true</i></td>
     <td class="tg-0pky">Determines whether project's dependencies should be installed on your new project init</td>
-    <td class="tg-0pky">`ajs new my-new-project -dependencies=false`</td>
+    <td class="tg-0pky"><i>ajs new my-new-project -dependencies=false</i></td>
   </tr>
 </table>
 
@@ -132,13 +125,6 @@ ajs g factory my-new-factory
 
 ***Additional options:***
 
-<style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
-.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
-.tg .tg-xldj{border-color:inherit;text-align:left}
-.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
-</style>
 <table class="tg">
   <tr>
     <th class="tg-xldj">Name</th>
@@ -149,19 +135,19 @@ ajs g factory my-new-factory
     <th class="tg-0pky">Comments</th>
   </tr>
   <tr>
-    <td class="tg-xldj">`style`</td>
-    <td class="tg-xldj">`css`<br>`less`<br>`scss`</td>
-    <td class="tg-xldj">`css`</td>
+    <td class="tg-xldj"><i>style</i></td>
+    <td class="tg-xldj"><i>css</i><br><i>less</i><br><i>scss</i></td>
+    <td class="tg-xldj"><i>css</i></td>
     <td class="tg-0pky">Determines style extension of your new files schema</td>
-    <td class="tg-0pky">`ajs g component -style=scss`</td>
-    <td class="tg-0pky">- Works only with `component`;<br>- If you are generating new component inside your AngularJS CLI project directory and you already declared style extension on project init, this option will not work;</td>
+    <td class="tg-0pky"><i>ajs g component -style=scss</i></td>
+    <td class="tg-0pky">- Works only with <i>component</i>;<br>- If you are generating new component inside your AngularJS CLI project directory and you already declared style extension on project init, this option will not work;</td>
   </tr>
   <tr>
-    <td class="tg-xldj">`skip-import`</td>
-    <td class="tg-xldj">`true`<br>`false`</td>
-    <td class="tg-xldj">`false`</td>
+    <td class="tg-xldj"><i>skip-import</i></td>
+    <td class="tg-xldj"><i>true</i><br><i>false</i></td>
+    <td class="tg-xldj"><i>false</i></td>
     <td class="tg-0pky">Determines whether created files will be imported to the files prepared for compilation</td>
-    <td class="tg-0pky">`ajs g component -skip-import=true`</td>
+    <td class="tg-0pky"><i>ajs g component -skip-import=true</i></td>
     <td class="tg-0pky">- Import works only inside projects generated with AngularJS CLI;</td>
   </tr>
 </table>
