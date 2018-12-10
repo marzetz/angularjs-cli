@@ -10,7 +10,7 @@
 ## Installation  
   
 ```shell  
-npm install -g angularjs-cli  
+npm install -g ajs-cli  
 ```  
   
 ## Creating new project  
