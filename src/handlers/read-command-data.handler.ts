@@ -62,5 +62,5 @@ async function getFiles(args: ICommandArguments, path: string, root: boolean, pr
 
 function getDependencies(args: ICommandArguments): boolean {
     if (typeof args.additional === "undefined") return false;
-    return (args.additional.dependencies === 'true');
+    return (args.additional.dependencies === 'true' || args.additional.dependencies === true);
 }

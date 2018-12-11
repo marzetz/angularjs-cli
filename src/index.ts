@@ -19,6 +19,7 @@ async function run(): Promise<void> {
 
     spinner.start('Reading command...');
     const commandData = await readCommandDataHandler(args);
+
     spinner.setText('Writing files and directories...');
     await writeFilesAndDirectoriesHandler(commandData);
 
