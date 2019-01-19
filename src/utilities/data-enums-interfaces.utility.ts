@@ -5,6 +5,11 @@ export enum ECommandAdditionalArguments {
     DEPENDENCIES = 'dependencies'
 }
 
+export enum ECommandAdditionalArgumentsAlias {
+    DEPENDENCIES = 'd',
+    SKIP_IMPORT = 's'
+}
+
 export enum ECommandArguments {
     CORE = 'core',
     TYPE = 'type',

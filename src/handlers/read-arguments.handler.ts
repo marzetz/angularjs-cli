@@ -3,7 +3,7 @@ import {CommandArgumentError} from "../errors/command-argument.error";
 import {prepareNameUtility} from "../utilities/prepare-name.utility";
 import {overrideDefaultOptionsUtility} from "../utilities/override-default-options.utility";
 import {
-    CAdditionalKeys, ECommandAdditionalArguments,
+    CAdditionalKeys, ECommandAdditionalArguments, ECommandAdditionalArgumentsAlias,
     ECommandArguments,
     ECommandCores,
     ECommandTypes, ICommandAdditionalArguments,
@@ -109,12 +109,27 @@ function getName(mainArgs: string[], core: ECommandCores): ICommandNames | undef
 function getAdditional(additionalArgs: string[], core: ECommandCores): ICommandAdditionalArguments | undefined {
     if (core === ECommandCores.INFO) return undefined;
     let result: ICommandAdditionalArguments = {};
-    additionalArgs.forEach((item: string) => {
+
+    const additionalArgsLength = additionalArgs.length;
+    for (let i = 0; i < additionalArgsLength; i++) {
+        let item: string = additionalArgs[i];
+
         if (item.indexOf('--') === 0) {
             item = item.replace('--', '');
-        }
-        if (item.indexOf('-') === 0) {
+            item = `${item}=${additionalArgs[i+1]}`;
+        } else if (item.indexOf('-') === 0) {
             item = item.replace('-', '');
+
+            switch (item) {
+                case ECommandAdditionalArgumentsAlias.DEPENDENCIES:
+                    item = `${ECommandAdditionalArguments.DEPENDENCIES}=false`;
+                    break;
+                case ECommandAdditionalArgumentsAlias.SKIP_IMPORT:
+                    item = `${ECommandAdditionalArguments.SKIP_IMPORT}=true`;
+                    break;
+            }
+        } else {
+            continue;
         }
 
         const splitted = item.split('=');
@@ -129,7 +144,7 @@ function getAdditional(additionalArgs: string[], core: ECommandCores): ICommandA
         }
 
         result[splitted[0]] = splitted[1] ? splitted[1] : true;
-    });
+    }
 
     result = overrideDefaultOptionsUtility(core, result);
 

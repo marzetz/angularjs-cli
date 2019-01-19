@@ -8,7 +8,14 @@ const app = require('./app.module');
         $stateProvider
             .state('home', {
                 url: '/',
-                template: '<app-page-home></app-page-home>'
+                component: 'appPageHome',
+                resolve: {
+                    sampleData: function() {
+                        this.$inject = [];
+
+                        return 'sampleValue';
+                    }
+                }
             })
     }
 })();

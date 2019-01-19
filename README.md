@@ -33,6 +33,7 @@ yarn start
 <table class="tg">
   <tr>
     <th class="tg-xldj">Name</th>
+    <th class="tg-xldj">Alias</th>
     <th class="tg-xldj">Available values</th>
     <th class="tg-xldj">Default</th>
     <th class="tg-0pky">Description</th>
@@ -40,17 +41,19 @@ yarn start
   </tr>
   <tr>
     <td class="tg-xldj"><i>style</i></td>
+    <td class="tg-xldj"><i>-</i></td>
     <td class="tg-xldj"><i>css</i><br><i>less</i><br><i>scss</i></td>
     <td class="tg-xldj"><i>css</i></td>
     <td class="tg-0pky">Determines style extension of your new files schema</td>
-    <td class="tg-0pky"><i>ajs g component -style=scss</i></td>
+    <td class="tg-0pky"><i>ajs g component --style scss</i></td>
   </tr>
   <tr>
     <td class="tg-xldj"><i>dependencies</i></td>
+    <td class="tg-xldj"><i>d</i></td>
     <td class="tg-xldj"><i>true</i><br><i>false</i></td>
     <td class="tg-xldj"><i>true</i></td>
     <td class="tg-0pky">Determines whether project's dependencies should be installed on your new project init</td>
-    <td class="tg-0pky"><i>ajs new my-new-project -dependencies=false</i></td>
+    <td class="tg-0pky"><i>ajs new my-new-project --dependencies false</i><br><br><i>ajs new my-new-project -d</i></td>
   </tr>
 </table>
 
@@ -128,6 +131,7 @@ ajs g factory my-new-factory
 <table class="tg">
   <tr>
     <th class="tg-xldj">Name</th>
+    <th class="tg-xldj">Alias</th>
     <th class="tg-xldj">Available values</th>
     <th class="tg-xldj">Default</th>
     <th class="tg-0pky">Description</th>
@@ -136,18 +140,20 @@ ajs g factory my-new-factory
   </tr>
   <tr>
     <td class="tg-xldj"><i>style</i></td>
+    <td class="tg-xldj"><i>-</i></td>
     <td class="tg-xldj"><i>css</i><br><i>less</i><br><i>scss</i></td>
     <td class="tg-xldj"><i>css</i></td>
     <td class="tg-0pky">Determines style extension of your new files schema</td>
-    <td class="tg-0pky"><i>ajs g component -style=scss</i></td>
+    <td class="tg-0pky"><i>ajs g component --style scss</i></td>
     <td class="tg-0pky">- Works only with <i>component</i>;<br>- If you are generating new component inside your AngularJS CLI project directory and you already declared style extension on project init, this option will not work;</td>
   </tr>
   <tr>
     <td class="tg-xldj"><i>skip-import</i></td>
+    <td class="tg-xldj"><i>s</i></td>
     <td class="tg-xldj"><i>true</i><br><i>false</i></td>
     <td class="tg-xldj"><i>false</i></td>
     <td class="tg-0pky">Determines whether created files will be imported to the files prepared for compilation</td>
-    <td class="tg-0pky"><i>ajs g component -skip-import=true</i></td>
+    <td class="tg-0pky"><i>ajs g component --skip-import true</i><br><br><i>ajs g component -s</i></td>
     <td class="tg-0pky">- Import works only inside projects generated with AngularJS CLI;</td>
   </tr>
 </table>
