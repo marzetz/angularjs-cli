@@ -6,7 +6,7 @@
 ***AngularJS CLI*** is a command line interface for AngularJS.
 
 ## Prerequisites
-- Node.js
+- Node.js (>=8)
 - yarn
     
 ## Installation  
