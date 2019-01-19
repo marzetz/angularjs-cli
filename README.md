@@ -37,7 +37,7 @@ yarn start
     <th class="tg-xldj">Available values</th>
     <th class="tg-xldj">Default</th>
     <th class="tg-0pky">Description</th>
-    <th class="tg-0pky">Example</th>
+    <th class="tg-0pky">Examples</th>
   </tr>
   <tr>
     <td class="tg-xldj"><i>style</i></td>
@@ -135,7 +135,7 @@ ajs g factory my-new-factory
     <th class="tg-xldj">Available values</th>
     <th class="tg-xldj">Default</th>
     <th class="tg-0pky">Description</th>
-    <th class="tg-0pky">Example</th>
+    <th class="tg-0pky">Examples</th>
     <th class="tg-0pky">Comments</th>
   </tr>
   <tr>
