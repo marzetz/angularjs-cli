@@ -406,7 +406,7 @@ export const resultMockup = {
                 {
                     path: '/test/app.imports.js',
                     value:
-                        '\nrequire(\'./../Users/michalmarzec/WWW/angularjs-cli/test/test.component.js\');'
+                        `\nrequire(\'./..${process.cwd()}/test/test.component.js\');`
                 }
         },
         {
