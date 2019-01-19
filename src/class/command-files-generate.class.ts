@@ -59,7 +59,7 @@ export class CommandFilesGenerateClass {
     }
 
     private async filesComponent(): Promise<ICommandFile[]> {
-        if (this.root) this.directory = `${this.path}/src/app/components/${this.args.name.kebap}`;
+        if (this.root) this.directory = Tools.path.resolve(`${this.path}/src/app/components/${this.args.name.kebap}`);
 
         const componentHtml: ICommandFile = {
             directory: this.directory,

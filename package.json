@@ -17,15 +17,21 @@
     "ora": "3.0.0"
   },
   "devDependencies": {
+    "@types/chai": "4.1.7",
     "@types/figlet": "1.2.0",
+    "@types/mocha": "5.2.5",
     "@types/node": "10.12.12",
     "@types/ora": "1.3.4",
-    "tsc-watch": "1.0.31",
-    "typescript": "3.2.2",
+    "chai": "4.2.0",
+    "mocha": "5.2.0",
     "semantic-release": "15.12.4",
-    "travis-deploy-once": "5.0.9"
+    "travis-deploy-once": "5.0.9",
+    "ts-node": "^7.0.1",
+    "tsc-watch": "1.0.31",
+    "typescript": "3.2.2"
   },
   "scripts": {
+    "test": "./node_modules/.bin/mocha -r ts-node/register spec/**/*.spec.ts",
     "watch": "./node_modules/.bin/tsc-watch",
     "build": "./node_modules/.bin/tsc && npm run build:contents",
     "build:contents": "cp -R ./src/contents ./lib",
