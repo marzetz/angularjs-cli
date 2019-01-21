@@ -1,9 +1,0 @@
-{
-    "appNames": {
-        "kebap": "elo",
-        "camel": "Elo",
-        "snake": "elo",
-        "capitalized": "ELO"
-    },
-    "style": "scss"
-}
