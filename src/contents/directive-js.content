@@ -1,10 +1,10 @@
 const app = require('../../app.module');
 (() => {
-    app.directive('app:camel', app:camelDirective);
+    app.directive('app:upperCamel', :upperCamelDirective);
 
-    app:camelDirective.$inject = [];
+    :upperCamelDirective.$inject = [];
 
-    function app:camelDirective() {
+    function :upperCamelDirective() {
         return {
             restrict: 'AEC',
             template: require('./:kebap.directive.html'),

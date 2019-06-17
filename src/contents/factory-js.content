@@ -1,14 +1,14 @@
 const app = require('../../app.module');
 (() => {
-    app.factory('app:camel', app:camelFactory);
+    app.factory(':upperCamelFactory', :upperCamel);
 
-    app:camelFactory.$inject = [];
+    :upperCamel.$inject = [];
 
-    function app:camelFactory() {
-        return new App:camel();
+    function :upperCamel() {
+        return new :upperCamelFactory();
 
-        function App:camel() {
-            this.name = 'app:camelFactory';
+        function :upperCamelFactory() {
+            this.name = ':upperCamelFactory';
         }
     }
 })();

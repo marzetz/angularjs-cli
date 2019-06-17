@@ -51,9 +51,10 @@ export class CommandFilesNewClass {
             content: await Tools.readFile(Tools.path.resolve(`${__dirname}/../contents/config.content`), 'utf-8'),
             params: [
                 {replace: /:kebap/g, value: this.args.name.kebap},
-                {replace: /:camel/g, value: this.args.name.camel},
+                {replace: /:lowerCamel/g, value: this.args.name.lowerCamel},
+                {replace: /:upperCamel/g, value: this.args.name.upperCamel},
                 {replace: /:snake/g, value: this.args.name.snake},
-                {replace: /:capitalized/g, value: this.args.name.capitalized},
+                {replace: /:allCaps/g, value: this.args.name.allCaps},
                 {replace: /:styleExtension/g, value: this.styleExtension}
             ],
         };
@@ -125,7 +126,7 @@ export class CommandFilesNewClass {
             extension: 'html',
             content: await Tools.readFile(Tools.path.resolve(`${__dirname}/../contents/index.content`), 'utf-8'),
             params: [
-                {replace: /:camel/g, value: this.args.name.camel},
+                {replace: /:upperCamel/g, value: this.args.name.upperCamel},
             ]
         };
     }
@@ -147,7 +148,7 @@ export class CommandFilesNewClass {
             extension: 'js',
             content: await Tools.readFile(Tools.path.resolve(`${__dirname}/../contents/module.content`), 'utf-8'),
             params: [
-                {replace: /:camel/g, value: this.args.name.camel},
+                {replace: /:upperCamel/g, value: this.args.name.upperCamel},
             ]
         };
     }
@@ -195,7 +196,7 @@ export class CommandFilesNewClass {
             extension: 'js',
             content: await Tools.readFile(Tools.path.resolve(`${__dirname}/../contents/component-js.content`), 'utf-8'),
             params: [
-                {replace: /:camel/g, value: 'Root'},
+                {replace: /:upperCamel/g, value: 'Root'},
                 {replace: /:kebap/g, value: 'root'},
             ]
         };
@@ -218,10 +219,7 @@ export class CommandFilesNewClass {
             directory: Tools.path.resolve(`${this.path}/${this.args.name.kebap}/src/app/components/root`),
             name: 'root.component',
             extension: 'html',
-            content: await Tools.readFile(Tools.path.resolve(`${__dirname}/../contents/root-component-html.content`), 'utf-8'),
-            params: [
-                {replace: /:camel/g, value: 'Root'},
-            ]
+            content: await Tools.readFile(Tools.path.resolve(`${__dirname}/../contents/root-component-html.content`), 'utf-8')
         };
     }
 
@@ -232,7 +230,7 @@ export class CommandFilesNewClass {
             extension: 'js',
             content: await Tools.readFile(Tools.path.resolve(`${__dirname}/../contents/component-js.content`), 'utf-8'),
             params: [
-                {replace: /:camel/g, value: 'PageHome'},
+                {replace: /:upperCamel/g, value: 'PageHome'},
                 {replace: /:kebap/g, value: 'page-home'},
             ]
         };
@@ -257,7 +255,7 @@ export class CommandFilesNewClass {
             extension: 'html',
             content: await Tools.readFile(Tools.path.resolve(`${__dirname}/../contents/component-html.content`), 'utf-8'),
             params: [
-                {replace: /:camel/g, value: 'PageHome'},
+                {replace: /:upperCamel/g, value: 'PageHome'},
             ]
         };
     }

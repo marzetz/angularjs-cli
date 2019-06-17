@@ -1,10 +1,10 @@
 const app = require('../../app.module');
 (() => {
-    app.filter('app:camel', app:camelFilter);
+    app.filter(':lowerCamel', :lowerCamelFilter);
 
-    app:camelFilter.$inject = [];
+    :lowerCamelFilter.$inject = [];
 
-    function app:camelFilter() {
+    function :lowerCamelFilter() {
         return (input) => {
             return input;
         }

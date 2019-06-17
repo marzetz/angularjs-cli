@@ -2,10 +2,11 @@ import {ICommandNames} from "./data-enums-interfaces.utility";
 
 export function prepareNameUtility(name: string): ICommandNames {
     return {
-        camel: toCamel(name),
+        lowerCamel: toLowerCamel(name),
+        upperCamel: toUpperCamel(name),
         snake: toSnake(name),
         kebap: toKebap(name),
-        capitalized: toCapitalized(name)
+        allCaps: toAllCaps(name)
     };
 }
 
@@ -13,7 +14,12 @@ function splitOriginalName(name: string) {
     return name.split(/(?=[A-Z])|[^\w\s]/g);
 }
 
-function toCamel(name: string) {
+function toLowerCamel(name: string) {
+    let lowerCamel = toUpperCamel(name);
+    return `${lowerCamel[0].toLowerCase()}${lowerCamel.slice(1)}`
+}
+
+function toUpperCamel(name: string) {
     const splitted = splitOriginalName(name);
     return splitted.map(value => {
         return value.charAt(0).toUpperCase() + value.substr(1);
@@ -34,7 +40,7 @@ function toKebap(name: string) {
     }).join('-');
 }
 
-function toCapitalized(name: string) {
+function toAllCaps(name: string) {
     const splitted = splitOriginalName(name);
     return splitted.map(value => {
         return value.toUpperCase();

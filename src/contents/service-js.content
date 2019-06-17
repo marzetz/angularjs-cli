@@ -1,10 +1,10 @@
 const app = require('../../app.module');
 (() => {
-    app.service('app:camel', app:camelService);
+    app.service(':upperCamelService', :upperCamel);
 
-    app:camelService.$inject = [];
+    :upperCamel.$inject = [];
 
-    function app:camelService() {
-        this.name = 'app:camelService';
+    function :upperCamel() {
+        this.name = ':upperCamelService';
     }
 })();

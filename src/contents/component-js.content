@@ -1,14 +1,14 @@
 const app = require('../../app.module');
 (() => {
-    app.component('app:camel', {
+    app.component('app:upperCamel', {
         template: require('./:kebap.component.html'),
-        controller: app:camelController,
+        controller: :upperCamelController,
         bindings: {}
     });
 
-    app:camelController.$inject = [];
+    :upperCamelController.$inject = [];
 
-    function app:camelController() {
+    function :upperCamelController() {
 
         this.$onInit = () => {
         }

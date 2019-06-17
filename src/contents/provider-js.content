@@ -1,10 +1,16 @@
 const app = require('../../app.module');
 (() => {
-    app.provider('app:camel', app:camelProvider);
+    app.provider(':upperCamelProvider', :upperCamel);
 
-    app:camelProvider.$inject = [];
+    :upperCamel.$inject = [];
 
-    function app:camelProvider() {
-        this.name = 'app:camelProvider';
+    function :upperCamel() {
+        this.name = ':upperCamelProvider';
+        this.$get = getFactoryMethod;
+
+        getFactoryMethod.$inject = [];
+        function getFactoryMethod() {
+
+        }
     }
 })();

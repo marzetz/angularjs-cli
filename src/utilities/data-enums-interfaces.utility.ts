@@ -101,8 +101,9 @@ export interface ICommandFile {
 }
 
 export interface ICommandNames {
-    camel: string,
+    lowerCamel: string,
+    upperCamel: string,
     kebap: string,
     snake: string,
-    capitalized: string
+    allCaps: string
 }

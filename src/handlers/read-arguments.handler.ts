@@ -18,7 +18,7 @@ export function readArgumentsHandler(): ICommandArguments {
 
     args.splice(0, 2);
 
-    const splitted: {main: string[], additional: string[]} = splitArgumentsUtility(args);
+    const splitted: { main: string[], additional: string[] } = splitArgumentsUtility(args);
 
     const
         core = getCore(splitted.main),
@@ -29,7 +29,13 @@ export function readArgumentsHandler(): ICommandArguments {
     return {
         [ECommandArguments.CORE]: core,
         [ECommandArguments.TYPE]: type ? type : '',
-        [ECommandArguments.NAME]: name ? name : {camel: '', kebap: '', snake: '', capitalized: ''},
+        [ECommandArguments.NAME]: name ? name : {
+            lowerCamel: '',
+            upperCamel: '',
+            kebap: '',
+            snake: '',
+            allCaps: ''
+        },
         [ECommandArguments.ADDITIONAL]: additional ? additional : undefined
     };
 }
@@ -116,7 +122,7 @@ function getAdditional(additionalArgs: string[], core: ECommandCores): ICommandA
 
         if (item.indexOf('--') === 0) {
             item = item.replace('--', '');
-            item = `${item}=${additionalArgs[i+1]}`;
+            item = `${item}=${additionalArgs[i + 1]}`;
         } else if (item.indexOf('-') === 0) {
             item = item.replace('-', '');
 

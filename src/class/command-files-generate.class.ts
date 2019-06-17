@@ -67,7 +67,7 @@ export class CommandFilesGenerateClass {
             extension: 'html',
             content: await Tools.readFile(Tools.path.resolve(`${__dirname}/../contents/component-html.content`), 'utf-8'),
             params: [
-                {replace: /:camel/g, value: this.args.name.camel}
+                {replace: /:upperCamel/g, value: this.args.name.upperCamel}
             ]
         };
 
@@ -78,7 +78,7 @@ export class CommandFilesGenerateClass {
             content: await Tools.readFile(Tools.path.resolve(`${__dirname}/../contents/component-js.content`), 'utf-8'),
             params: [
                 {replace: /:kebap/g, value: this.args.name.kebap},
-                {replace: /:camel/g, value: this.args.name.camel}
+                {replace: /:upperCamel/g, value: this.args.name.upperCamel}
             ]
         };
 
@@ -121,7 +121,7 @@ export class CommandFilesGenerateClass {
             extension: 'html',
             content: await Tools.readFile(Tools.path.resolve(`${__dirname}/../contents/directive-html.content`), 'utf-8'),
             params: [
-                {replace: /:camel/g, value: this.args.name.camel}
+                {replace: /:upperCamel/g, value: this.args.name.upperCamel}
             ]
         };
 
@@ -132,7 +132,7 @@ export class CommandFilesGenerateClass {
             content: await Tools.readFile(Tools.path.resolve(`${__dirname}/../contents/directive-js.content`), 'utf-8'),
             params: [
                 {replace: /:kebap/g, value: this.args.name.kebap},
-                {replace: /:camel/g, value: this.args.name.camel}
+                {replace: /:upperCamel/g, value: this.args.name.upperCamel}
             ]
         };
 
@@ -157,7 +157,7 @@ export class CommandFilesGenerateClass {
             extension: 'js',
             content: await Tools.readFile(Tools.path.resolve(`${__dirname}/../contents/filter-js.content`), 'utf-8'),
             params: [
-                {replace: /:camel/g, value: this.args.name.camel}
+                {replace: /:lowerCamel/g, value: this.args.name.lowerCamel}
             ]
         };
 
@@ -182,8 +182,8 @@ export class CommandFilesGenerateClass {
             extension: 'js',
             content: await Tools.readFile(Tools.path.resolve(`${__dirname}/../contents/constant-js.content`), 'utf-8'),
             params: [
-                {replace: /:camel/g, value: this.args.name.camel},
-                {replace: /:capitalized/g, value: this.args.name.capitalized},
+                {replace: /:upperCamel/g, value: this.args.name.upperCamel},
+                {replace: /:allCaps/g, value: this.args.name.allCaps},
             ]
         };
 
@@ -208,7 +208,7 @@ export class CommandFilesGenerateClass {
             extension: 'js',
             content: await Tools.readFile(Tools.path.resolve(`${__dirname}/../contents/service-js.content`), 'utf-8'),
             params: [
-                {replace: /:camel/g, value: this.args.name.camel}
+                {replace: /:upperCamel/g, value: this.args.name.upperCamel}
             ]
         };
 
@@ -233,7 +233,7 @@ export class CommandFilesGenerateClass {
             extension: 'js',
             content: await Tools.readFile(Tools.path.resolve(`${__dirname}/../contents/provider-js.content`), 'utf-8'),
             params: [
-                {replace: /:camel/g, value: this.args.name.camel}
+                {replace: /:upperCamel/g, value: this.args.name.upperCamel}
             ]
         };
 
@@ -258,7 +258,7 @@ export class CommandFilesGenerateClass {
             extension: 'js',
             content: await Tools.readFile(Tools.path.resolve(`${__dirname}/../contents/factory-js.content`), 'utf-8'),
             params: [
-                {replace: /:camel/g, value: this.args.name.camel}
+                {replace: /:upperCamel/g, value: this.args.name.upperCamel}
             ]
         };
 

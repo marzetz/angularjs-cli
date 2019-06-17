@@ -1,9 +1,10 @@
 {
     "appNames": {
         "kebap": ":kebap",
-        "camel": ":camel",
+        "lowerCamel": ":lowerCamel",
+        "upperCamel": ":upperCamel",
         "snake": ":snake",
-        "capitalized": ":capitalized"
+        "allCaps": ":allCaps"
     },
     "style": ":styleExtension"
 }
