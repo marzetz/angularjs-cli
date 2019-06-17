@@ -6,6 +6,7 @@ import {
 } from "../utilities/data-enums-interfaces.utility";
 import {Tools} from "../utilities/tools.utility";
 import {CommandTypeError} from "../errors/command-type.error";
+import {ImpossibleSettingsError} from "../errors/impossible-setting.error";
 
 export class CommandFilesGenerateClass {
     protected args: ICommandArguments;
@@ -38,6 +39,9 @@ export class CommandFilesGenerateClass {
     }
 
     public async init(): Promise<ICommandFile[]> {
+        if (this.root && !this.project) {
+            throw new ImpossibleSettingsError();
+        }
         switch (this.args.type) {
             case ECommandTypes.COMPONENT:
                 return await this.filesComponent();
@@ -59,7 +63,7 @@ export class CommandFilesGenerateClass {
     }
 
     private async filesComponent(): Promise<ICommandFile[]> {
-        if (this.root) this.directory = `${this.path}/src/app/components/${this.args.name.kebap}`;
+        if (this.root) this.directory = Tools.path.resolve(`${this.path}/src/app/components/${this.args.name.kebap}`);
 
         const componentHtml: ICommandFile = {
             directory: this.directory,

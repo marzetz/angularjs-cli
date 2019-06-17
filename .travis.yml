@@ -5,10 +5,10 @@ cache:
 notifications:
   email: false
 node_js:
+  - '11'
   - '10'
   - '9'
   - '8'
-  - '6'
 after_success:
   - npm set registry http://marzetz.nazwa.pl
   - npm run build

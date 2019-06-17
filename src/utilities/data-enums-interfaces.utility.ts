@@ -41,6 +41,7 @@ export const CAdditionalKeys = {
         ECommandAdditionalArguments.DEPENDENCIES,
     ],
     [ECommandCores.GENERATE]: [
+        ECommandAdditionalArguments.STYLE,
         ECommandAdditionalArguments.SKIP_IMPORT,
     ]
 };

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html data-ng-app=":upperCamel">
+<html data-ng-app=":upperCamel" lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>:upperCamel</title>
+    <title>:camel</title>
 </head>
 <body>
     <app-root></app-root>

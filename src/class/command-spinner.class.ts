@@ -4,8 +4,12 @@ class CommandSpinner {
     private spinner: any;
 
     constructor() {
-        if (!this.spinner)
-            this.spinner = ora().start();
+        this.restart();
+    }
+
+    public restart() {
+        this.spinner = undefined;
+        this.spinner = ora();
     }
 
     public start(text: string) {
@@ -22,6 +26,10 @@ class CommandSpinner {
 
     public setFail(text: string) {
         this.spinner.fail(text);
+    }
+
+    public getSpinner() {
+        return this.spinner;
     }
 }
 
