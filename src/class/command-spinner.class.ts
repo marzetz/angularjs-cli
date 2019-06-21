@@ -13,7 +13,8 @@ class CommandSpinner {
     }
 
     public start(text: string) {
-        this.spinner = ora(text).start();
+        if (!this.spinner) this.restart();
+        this.spinner.start(text);
     }
 
     public setText(text: string) {
