@@ -9,10 +9,11 @@ export function generateArguments() {
     const core = [ECommandCores.NEW];
     const type = [''];
     const name = [{
-        camel: 'Test',
+        upperCamel: 'Test',
+        lowerCamel: 'test',
         snake: 'test',
         kebap: 'test',
-        capitalized: 'TEST'
+        allCaps: 'TEST'
     }];
     const additional = [{
         'style': ECommandAdditionalArgumentsStyle.CSS,
@@ -134,12 +135,16 @@ function prepareConfig(argument:
         name: '.angularjs-cli',
         extension: 'json',
         content:
-            '{\n    "appNames": {\n        "kebap": ":kebap",\n        "camel": ":camel",\n        "snake": ":snake",\n        "capitalized": ":capitalized"\n    },\n    "style": ":styleExtension"\n}\n',
-        params: [{replace: /:kebap/g, value: 'test'},
-            {replace: /:camel/g, value: 'Test'},
-            {replace: /:snake/g, value: 'test'},
-            {replace: /:capitalized/g, value: 'TEST'},
-            {replace: /:styleExtension/g, value: argument.additional.style}]
+            '{\n    "appNames": {\n        "kebap": ":kebap",\n        "lowerCamel": ":lowerCamel",\n        "upperCamel": ":upperCamel",\n        "snake": ":snake",\n        "allCaps": ":allCaps"\n    },\n    "style": ":styleExtension"\n}\n',
+        params:
+            [
+                {replace: /:kebap/g, value: 'test'},
+                {replace: /:lowerCamel/g, value: 'test'},
+                {replace: /:upperCamel/g, value: 'Test'},
+                {replace: /:snake/g, value: 'test'},
+                {replace: /:allCaps/g, value: 'TEST'},
+                {replace: /:styleExtension/g, value: argument.additional.style}
+            ]
     }
 }
 
@@ -268,9 +273,9 @@ function prepareIndexHtml() {
         name: 'index',
         extension: 'html',
         content:
-            '<!DOCTYPE html>\n<html data-ng-app=":camel" lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>:camel</title>\n</head>\n<body>\n    <app-root></app-root>\n    <script src="vendor.bundle.js" type="application/javascript"></script>\n    <script src="app.bundle.js" type="application/javascript"></script>\n</body>\n</html>\n',
-        params: [{replace: /:camel/g, value: 'Test'}]
-    }
+            '<!DOCTYPE html>\n<html data-ng-app=":upperCamel" lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>:upperCamel</title>\n</head>\n<body>\n    <app-root></app-root>\n    <script src="vendor.bundle.js" type="application/javascript"></script>\n    <script src="app.bundle.js" type="application/javascript"></script>\n</body>\n</html>\n',
+        params: [{replace: /:upperCamel/g, value: 'Test'}]
+    };
 }
 
 function prepareStyles(argument:
@@ -306,8 +311,8 @@ function prepareAppModule() {
         name: 'app.module',
         extension: 'js',
         content:
-            '(() => {\n    module.exports = angular.module(\':camel\', [\'ui.router\']);\n})();\n',
-        params: [{replace: /:camel/g, value: 'Test'}]
+            '(() => {\n    module.exports = angular.module(\':upperCamel\', [\'ui.router\']);\n})();\n',
+        params: [{replace: /:upperCamel/g, value: 'Test'}]
     };
 }
 
@@ -378,11 +383,10 @@ function prepareComponentRootJs() {
         name: 'root.component',
         extension: 'js',
         content:
-            'const app = require(\'../../app.module\');\n(() => {\n    app.component(\'app:camel\', {\n        template: require(\'./:kebap.component.html\'),\n        controller: app:camelController,\n        bindings: {}\n    });\n\n    app:camelController.$inject = [];\n\n    function app:camelController() {\n\n        this.$onInit = () => {\n        }\n    }\n})();\n',
-        params: [
-            {replace: /:camel/g, value: 'Root'},
-            {replace: /:kebap/g, value: 'root'}
-        ]
+            'const app = require(\'../../app.module\');\n(() => {\n    app.component(\'app:upperCamel\', {\n        template: require(\'./:kebap.component.html\'),\n        controller: :upperCamelController,\n        bindings: {}\n    });\n\n    :upperCamelController.$inject = [];\n\n    function :upperCamelController() {\n\n        this.$onInit = () => {\n        }\n    }\n})();\n',
+        params:
+            [{replace: /:upperCamel/g, value: 'Root'},
+                {replace: /:kebap/g, value: 'root'}]
     };
 }
 
@@ -410,8 +414,7 @@ function prepareComponentRootHtml() {
             `${process.cwd()}/test/src/app/components/root`,
         name: 'root.component',
         extension: 'html',
-        content: '<ui-view></ui-view>\n',
-        params: [{replace: /:camel/g, value: 'Root'}]
+        content: '<ui-view></ui-view>\n'
     };
 }
 
@@ -422,11 +425,10 @@ function prepareComponentHomePageJs() {
         name: 'page-home.component',
         extension: 'js',
         content:
-            'const app = require(\'../../app.module\');\n(() => {\n    app.component(\'app:camel\', {\n        template: require(\'./:kebap.component.html\'),\n        controller: app:camelController,\n        bindings: {}\n    });\n\n    app:camelController.$inject = [];\n\n    function app:camelController() {\n\n        this.$onInit = () => {\n        }\n    }\n})();\n',
-        params: [
-            {replace: /:camel/g, value: 'PageHome'},
-            {replace: /:kebap/g, value: 'page-home'}
-        ]
+            'const app = require(\'../../app.module\');\n(() => {\n    app.component(\'app:upperCamel\', {\n        template: require(\'./:kebap.component.html\'),\n        controller: :upperCamelController,\n        bindings: {}\n    });\n\n    :upperCamelController.$inject = [];\n\n    function :upperCamelController() {\n\n        this.$onInit = () => {\n        }\n    }\n})();\n',
+        params:
+            [{replace: /:upperCamel/g, value: 'PageHome'},
+                {replace: /:kebap/g, value: 'page-home'}]
     };
 }
 
@@ -454,7 +456,7 @@ function prepareComponentHomePageHtml() {
             `${process.cwd()}/test/src/app/components/page-home`,
         name: 'page-home.component',
         extension: 'html',
-        content: '<p>\n    app:camel works!\n</p>\n',
-        params: [{replace: /:camel/g, value: 'PageHome'}]
-    };
+        content: '<p>\n    app:upperCamel works!\n</p>\n',
+        params: [{replace: /:upperCamel/g, value: 'PageHome'}]
+    }
 }

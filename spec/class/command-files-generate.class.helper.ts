@@ -17,10 +17,11 @@ export function generateArguments() {
         'invalidType'
     ];
     const name = [{
-        camel: 'Test',
+        upperCamel: 'Test',
+        lowerCamel: 'test',
         snake: 'test',
         kebap: 'test',
-        capitalized: 'TEST'
+        allCaps: 'TEST'
     }];
     const path = ['/test'];
     const root = [false, true];
@@ -30,9 +31,10 @@ export function generateArguments() {
             appNames:
                 {
                     kebap: 'test-app',
-                    camel: 'TestApp',
+                    upperCamel: 'TestApp',
+                    lowerCamel: 'testApp',
                     snake: 'test_app',
-                    capitalized: 'TEST_APP'
+                    allCaps: 'TEST_APP'
                 },
             style: ECommandAdditionalArgumentsStyle.SCSS
         }];
@@ -173,18 +175,18 @@ export function filesComponent() {
             name: 'test.component',
             directory: null,
             extension: 'html',
-            content: '<p>\n    app:camel works!\n</p>\n',
-            params: [{replace: /:camel/g, value: 'Test'}]
+            content: "<p>\n    app:upperCamel works!\n</p>\n",
+            params: [{replace: /:upperCamel/g, value: 'Test'}]
         },
         {
             name: 'test.component',
             directory: null,
             extension: 'js',
             content:
-                'const app = require(\'../../app.module\');\n(() => {\n    app.component(\'app:camel\', {\n        template: require(\'./:kebap.component.html\'),\n        controller: app:camelController,\n        bindings: {}\n    });\n\n    app:camelController.$inject = [];\n\n    function app:camelController() {\n\n        this.$onInit = () => {\n        }\n    }\n})();\n',
+                "const app = require('../../app.module');\n(() => {\n    app.component('app:upperCamel', {\n        template: require('./:kebap.component.html'),\n        controller: :upperCamelController,\n        bindings: {}\n    });\n\n    :upperCamelController.$inject = [];\n\n    function :upperCamelController() {\n\n        this.$onInit = () => {\n        }\n    }\n})();\n",
             params: [
                 {replace: /:kebap/g, value: 'test'},
-                {replace: /:camel/g, value: 'Test'}
+                {replace: /:upperCamel/g, value: 'Test'}
             ],
             import: null
         },
@@ -205,10 +207,10 @@ export function filesDirective() {
             directory: null,
             name: 'test.directive',
             extension: 'html',
-            content: '<p>\n    app:camel works!\n</p>',
+            content: '<p>\n    app:upperCamel works!\n</p>\n',
             params: [
                 {
-                    replace: /:camel/g,
+                    replace: /:upperCamel/g,
                     value: "Test"
                 }
             ]
@@ -218,14 +220,14 @@ export function filesDirective() {
             name: 'test.directive',
             extension: 'js',
             content:
-                'const app = require(\'../../app.module\');\n(() => {\n    app.directive(\'app:camel\', app:camelDirective);\n\n    app:camelDirective.$inject = [];\n\n    function app:camelDirective() {\n        return {\n            restrict: \'AEC\',\n            template: require(\'./:kebap.directive.html\'),\n            scope: {},\n            link: link\n        }\n    }\n\n    function link(scope, element, attributes) {\n\n    }\n})();\n',
+                "const app = require('../../app.module');\n(() => {\n    app.directive('app:upperCamel', :upperCamelDirective);\n\n    :upperCamelDirective.$inject = [];\n\n    function :upperCamelDirective() {\n        return {\n            restrict: 'AEC',\n            template: require('./:kebap.directive.html'),\n            scope: {},\n            link: link\n        }\n    }\n\n    function link(scope, element, attributes) {\n\n    }\n})();\n",
             params: [
                 {
                     replace: /:kebap/g,
                     value: "test"
                 },
                 {
-                    replace: /:camel/g,
+                    replace: /:upperCamel/g,
                     value: "Test"
                 }
             ],
@@ -241,8 +243,8 @@ export function filesFilter() {
             name: 'test.filter',
             extension: 'js',
             content:
-                'const app = require(\'../../app.module\');\n(() => {\n    app.filter(\'app:camel\', app:camelFilter);\n\n    app:camelFilter.$inject = [];\n\n    function app:camelFilter() {\n        return (input) => {\n            return input;\n        }\n    }\n})();\n',
-            params: [{replace: /:camel/g, value: 'Test'}],
+                "const app = require('../../app.module');\n(() => {\n    app.filter(':lowerCamel', :lowerCamelFilter);\n\n    :lowerCamelFilter.$inject = [];\n\n    function :lowerCamelFilter() {\n        return (input) => {\n            return input;\n        }\n    }\n})();\n",
+            params: [{replace: /:lowerCamel/g, value: 'test'}],
             import: null
         }
     ];
@@ -255,11 +257,11 @@ export function filesConstant() {
             name: 'test.constant',
             extension: 'js',
             content:
-                'const app = require(\'../../app.module\');\n(() => {\n    const app:camelConstant = {};\n\n    app.constant(\'APP_:capitalized\', app:camelConstant);\n})();\n',
+                "const app = require('../../app.module');\n(() => {\n    const :upperCamelConstant = {};\n\n    app.constant(':allCaps', :upperCamelConstant);\n})();\n",
             params:
                 [
-                    {replace: /:camel/g, value: 'Test'},
-                    {replace: /:capitalized/g, value: 'TEST'}
+                    {replace: /:upperCamel/g, value: 'Test'},
+                    {replace: /:allCaps/g, value: 'TEST'}
                 ],
             import: null
         }
@@ -288,8 +290,8 @@ export function filesProvider() {
             name: 'test.provider',
             extension: 'js',
             content:
-                'const app = require(\'../../app.module\');\n(() => {\n    app.provider(\'app:camel\', app:camelProvider);\n\n    app:camelProvider.$inject = [];\n\n    function app:camelProvider() {\n        this.name = \'app:camelProvider\';\n    }\n})();\n',
-            params: [{replace: /:camel/g, value: 'Test'}],
+                "const app = require('../../app.module');\n(() => {\n    app.provider(':upperCamelProvider', :upperCamel);\n\n    :upperCamel.$inject = [];\n\n    function :upperCamel() {\n        this.name = ':upperCamelProvider';\n        this.$get = getFactoryMethod;\n\n        getFactoryMethod.$inject = [];\n        function getFactoryMethod() {\n\n        }\n    }\n})();\n",
+            params: [{replace: /:upperCamel/g, value: 'Test'}],
             import: null
         }
     ];
@@ -301,9 +303,8 @@ export function filesFactory() {
             directory: null,
             name: 'test.factory',
             extension: 'js',
-            content:
-                'const app = require(\'../../app.module\');\n(() => {\n    app.factory(\'app:camel\', app:camelFactory);\n\n    app:camelFactory.$inject = [];\n\n    function app:camelFactory() {\n        return new App:camel();\n\n        function App:camel() {\n            this.name = \'app:camelFactory\';\n        }\n    }\n})();\n',
-            params: [{replace: /:camel/g, value: 'Test'}],
+            content: "const app = require('../../app.module');\n(() => {\n    app.factory(':upperCamelFactory', :upperCamel);\n\n    :upperCamel.$inject = [];\n\n    function :upperCamel() {\n        return new :upperCamelFactory();\n\n        function :upperCamelFactory() {\n            this.name = ':upperCamelFactory';\n        }\n    }\n})();\n",
+            params: [{replace: /:upperCamel/g, value: 'Test'}],
             import: null
         }
     ];

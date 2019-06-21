@@ -2,7 +2,7 @@
 <html data-ng-app=":upperCamel" lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>:camel</title>
+    <title>:upperCamel</title>
 </head>
 <body>
     <app-root></app-root>
