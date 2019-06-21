@@ -12,23 +12,24 @@
     "lib/**/*"
   ],
   "dependencies": {
-    "chalk": "2.4.1",
-    "figlet": "1.2.1",
-    "ora": "3.0.0"
+    "chalk": "^2.4.2",
+    "figlet": "^1.2.3",
+    "ora": "^3.4.0"
   },
   "devDependencies": {
-    "@types/chai": "4.1.7",
-    "@types/figlet": "1.2.0",
-    "@types/mocha": "5.2.5",
-    "@types/node": "10.12.12",
-    "@types/ora": "1.3.4",
-    "chai": "4.2.0",
-    "mocha": "5.2.0",
-    "semantic-release": "15.12.4",
-    "travis-deploy-once": "5.0.9",
-    "ts-node": "7.0.1",
-    "tsc-watch": "1.0.31",
-    "typescript": "3.2.2"
+    "@types/chai": "^4.1.7",
+    "@types/figlet": "^1.2.0",
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^12.0.8",
+    "@types/ora": "^3.2.0",
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4",
+    "semantic-release": "^15.13.16",
+    "sinon": "^7.3.2",
+    "travis-deploy-once": "^5.0.11",
+    "ts-node": "^8.3.0",
+    "tsc-watch": "^2.2.1",
+    "typescript": "^3.5.2"
   },
   "scripts": {
     "test": "./node_modules/.bin/mocha -r ts-node/register spec/**/*.spec.ts",
