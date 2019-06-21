@@ -8,6 +8,7 @@ import {ECommandCores} from "./utilities/data-enums-interfaces.utility";
 import chalk from "chalk";
 import {Tools} from "./utilities/tools.utility";
 import {spinner} from "./class/command-spinner.class";
+import {logger} from "./utilities/logger.utility";
 
 async function run(): Promise<void> {
     const args = readArgumentsHandler();
@@ -35,7 +36,7 @@ async function run(): Promise<void> {
         spinner.setSucceed('Success!');
     } catch (e) {
         spinner.setFail('Failure!');
-        console.error(chalk.red(e));
+        logger.error(chalk.red(e));
     }
     process.exit();
 })();

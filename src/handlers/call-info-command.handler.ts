@@ -1,25 +1,26 @@
 import figlet = require("figlet");
 import chalk from "chalk";
 import {Tools} from "../utilities/tools.utility";
+import {logger} from "../utilities/logger.utility";
 
 export async function callInfoCommandHandler() {
     const packageJson = await Tools.readFile(Tools.path.resolve(`${__dirname}/../../package.json`), 'utf-8'),
         decoded = JSON.parse(packageJson);
 
-    console.log(
+    logger.log(
         chalk.red(
             figlet.textSync('AngularJS CLI')
         )
     );
-    console.log(
+    logger.log(
         chalk.yellow(
             `AngularJS CLI: ${decoded.version}`
         ), '\n'
     );
 
-    console.log('Available commands: \n');
+    logger.log('Available commands: \n');
 
-    console.log(
+    logger.log(
         chalk.blue('new'),
         `- generates new project; \n` +
         `usage: go to the directory where you want to initiate new project, type ${chalk.green('ajs new YourProjectName')} and hit enter;\n` +
@@ -28,7 +29,7 @@ export async function callInfoCommandHandler() {
         `   * ${chalk.green('--dependencies true/false')} - defines if AngularJS CLI should install dependencies for your new project, default: true;\n`
     );
 
-    console.log(
+    logger.log(
         chalk.blue('generate'),
         'alias',
         chalk.blue('g'),
