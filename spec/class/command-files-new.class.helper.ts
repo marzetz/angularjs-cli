@@ -100,7 +100,7 @@ class ArgumentsMockup {
     readonly path: string;
     readonly core: ECommandCores;
     readonly type: ECommandTypes;
-    readonly name: { camel: string, snake: string, kebap: string, capitalized: string };
+    readonly name: { upperCamel: string, lowerCamel: string, snake: string, kebap: string, allCaps: string };
     readonly additional: { "style": ECommandAdditionalArgumentsStyle, "description": boolean };
 
     constructor(...args: any[]) {
