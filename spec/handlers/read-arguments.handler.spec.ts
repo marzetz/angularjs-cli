@@ -1,12 +1,12 @@
-import {generateArguments, getResults} from "./read-arguments.handler.helper";
+import {generateRawArguments, getCommandArguments} from "./handlers.helper";
 import {readArgumentsHandler} from "../../src/handlers/read-arguments.handler";
 import {CommandArgumentError} from "../../src/errors/command-argument.error";
 
 const expect = require('chai').expect;
 
 describe('readArgumentsHandler', () => {
-    const permutations = generateArguments();
-    const results = getResults();
+    const permutations = generateRawArguments();
+    const results = getCommandArguments();
 
     permutations.forEach((permutation: string[], index: number) => {
         let name = `[${index}] ${permutation.join(' ').replace(/--/g, '')}`;

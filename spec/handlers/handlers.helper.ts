@@ -1,32 +1,34 @@
-export function generateArguments() {
+import {ECommandAdditionalArgumentsStyle, ICommandArguments} from "../../src/utilities/data-enums-interfaces.utility";
+
+export function generateRawArguments() {
     return [
         ['', '', 'new', 'test'],
-        ['', '', 'new', 'test', '--style', 'css'],
-        ['', '', 'new', 'test', '--style', 'less'],
-        ['', '', 'new', 'test', '--style', 'scss'],
+        ['', '', 'new', 'test', '--style', ECommandAdditionalArgumentsStyle.CSS],
+        ['', '', 'new', 'test', '--style', ECommandAdditionalArgumentsStyle.LESS],
+        ['', '', 'new', 'test', '--style', ECommandAdditionalArgumentsStyle.SCSS],
         ['', '', 'new', 'test', '--dependencies', 'true'],
         ['', '', 'new', 'test', '--dependencies', 'false'],
 
-        ['', '', 'new', 'test', '--dependencies', 'false', '--style', 'css'],
-        ['', '', 'new', 'test', '--dependencies', 'true', '--style', 'css'],
-        ['', '', 'new', 'test', '--dependencies', 'false', '--style', 'less'],
-        ['', '', 'new', 'test', '--dependencies', 'true', '--style', 'less'],
-        ['', '', 'new', 'test', '--dependencies', 'false', '--style', 'scss'],
-        ['', '', 'new', 'test', '--dependencies', 'true', '--style', 'scss'],
+        ['', '', 'new', 'test', '--dependencies', 'false', '--style', ECommandAdditionalArgumentsStyle.CSS],
+        ['', '', 'new', 'test', '--dependencies', 'true', '--style', ECommandAdditionalArgumentsStyle.CSS],
+        ['', '', 'new', 'test', '--dependencies', 'false', '--style', ECommandAdditionalArgumentsStyle.LESS],
+        ['', '', 'new', 'test', '--dependencies', 'true', '--style', ECommandAdditionalArgumentsStyle.LESS],
+        ['', '', 'new', 'test', '--dependencies', 'false', '--style', ECommandAdditionalArgumentsStyle.SCSS],
+        ['', '', 'new', 'test', '--dependencies', 'true', '--style', ECommandAdditionalArgumentsStyle.SCSS],
 
         ['', '', 'generate', 'component', 'test'],
-        ['', '', 'generate', 'component', 'test', '--style', 'css'],
-        ['', '', 'generate', 'component', 'test', '--style', 'less'],
-        ['', '', 'generate', 'component', 'test', '--style', 'scss'],
+        ['', '', 'generate', 'component', 'test', '--style', ECommandAdditionalArgumentsStyle.CSS],
+        ['', '', 'generate', 'component', 'test', '--style', ECommandAdditionalArgumentsStyle.LESS],
+        ['', '', 'generate', 'component', 'test', '--style', ECommandAdditionalArgumentsStyle.SCSS],
         ['', '', 'generate', 'component', 'test', '--skip-import', 'true'],
         ['', '', 'generate', 'component', 'test', '--skip-import', 'false'],
 
-        ['', '', 'generate', 'component', 'test', '--skip-import', 'false', '--style', 'css'],
-        ['', '', 'generate', 'component', 'test', '--skip-import', 'true', '--style', 'css'],
-        ['', '', 'generate', 'component', 'test', '--skip-import', 'false', '--style', 'less'],
-        ['', '', 'generate', 'component', 'test', '--skip-import', 'true', '--style', 'less'],
-        ['', '', 'generate', 'component', 'test', '--skip-import', 'false', '--style', 'scss'],
-        ['', '', 'generate', 'component', 'test', '--skip-import', 'true', '--style', 'scss'],
+        ['', '', 'generate', 'component', 'test', '--skip-import', 'false', '--style', ECommandAdditionalArgumentsStyle.CSS],
+        ['', '', 'generate', 'component', 'test', '--skip-import', 'true', '--style', ECommandAdditionalArgumentsStyle.CSS],
+        ['', '', 'generate', 'component', 'test', '--skip-import', 'false', '--style', ECommandAdditionalArgumentsStyle.LESS],
+        ['', '', 'generate', 'component', 'test', '--skip-import', 'true', '--style', ECommandAdditionalArgumentsStyle.LESS],
+        ['', '', 'generate', 'component', 'test', '--skip-import', 'false', '--style', ECommandAdditionalArgumentsStyle.SCSS],
+        ['', '', 'generate', 'component', 'test', '--skip-import', 'true', '--style', ECommandAdditionalArgumentsStyle.SCSS],
 
         ['', '', 'generate', 'directive', 'test'],
         ['', '', 'generate', 'directive', 'test', '--skip-import', 'true'],
@@ -63,7 +65,7 @@ export function generateArguments() {
     ];
 }
 
-export function getResults() {
+export function getCommandArguments(): ICommandArguments[] {
     return [
         {
             core: 'new',
@@ -76,7 +78,7 @@ export function getResults() {
                     kebap: 'test',
                     allCaps: 'TEST'
                 },
-            additional: {style: 'css', dependencies: true}
+            additional: {style: ECommandAdditionalArgumentsStyle.CSS, dependencies: true},
         },
         {
             core: 'new',
@@ -89,7 +91,7 @@ export function getResults() {
                     kebap: 'test',
                     allCaps: 'TEST'
                 },
-            additional: {style: 'css', dependencies: true}
+            additional: {style: ECommandAdditionalArgumentsStyle.CSS, dependencies: true},
         }, {
             core: 'new',
             type: '',
@@ -101,7 +103,7 @@ export function getResults() {
                     kebap: 'test',
                     allCaps: 'TEST'
                 },
-            additional: {style: 'less', dependencies: true}
+            additional: {style: ECommandAdditionalArgumentsStyle.LESS, dependencies: true},
         },
         {
             core: 'new',
@@ -114,7 +116,7 @@ export function getResults() {
                     kebap: 'test',
                     allCaps: 'TEST'
                 },
-            additional: {style: 'scss', dependencies: true}
+            additional: {style: ECommandAdditionalArgumentsStyle.SCSS, dependencies: true},
         },
         {
             core: 'new',
@@ -127,7 +129,7 @@ export function getResults() {
                     kebap: 'test',
                     allCaps: 'TEST'
                 },
-            additional: {style: 'css', dependencies: 'true'}
+            additional: {style: ECommandAdditionalArgumentsStyle.CSS, dependencies: 'true'}
         },
         {
             core: 'new',
@@ -140,7 +142,7 @@ export function getResults() {
                     kebap: 'test',
                     allCaps: 'TEST'
                 },
-            additional: {style: 'css', dependencies: 'false'}
+            additional: {style: ECommandAdditionalArgumentsStyle.CSS, dependencies: 'false'}
         },
         {
             core: 'new',
@@ -153,7 +155,7 @@ export function getResults() {
                     kebap: 'test',
                     allCaps: 'TEST'
                 },
-            additional: {style: 'css', dependencies: 'false'}
+            additional: {style: ECommandAdditionalArgumentsStyle.CSS, dependencies: 'false'}
         },
         {
             core: 'new',
@@ -166,7 +168,7 @@ export function getResults() {
                     kebap: 'test',
                     allCaps: 'TEST'
                 },
-            additional: {style: 'css', dependencies: 'true'}
+            additional: {style: ECommandAdditionalArgumentsStyle.CSS, dependencies: 'true'}
         },
         {
             core: 'new',
@@ -179,7 +181,7 @@ export function getResults() {
                     kebap: 'test',
                     allCaps: 'TEST'
                 },
-            additional: {style: 'less', dependencies: 'false'}
+            additional: {style: ECommandAdditionalArgumentsStyle.LESS, dependencies: 'false'}
         },
         {
             core: 'new',
@@ -192,7 +194,7 @@ export function getResults() {
                     kebap: 'test',
                     allCaps: 'TEST'
                 },
-            additional: {style: 'less', dependencies: 'true'}
+            additional: {style: ECommandAdditionalArgumentsStyle.LESS, dependencies: 'true'}
         },
         {
             core: 'new',
@@ -205,7 +207,7 @@ export function getResults() {
                     kebap: 'test',
                     allCaps: 'TEST'
                 },
-            additional: {style: 'scss', dependencies: 'false'}
+            additional: {style: ECommandAdditionalArgumentsStyle.SCSS, dependencies: 'false'}
         },
         {
             core: 'new',
@@ -218,7 +220,7 @@ export function getResults() {
                     kebap: 'test',
                     allCaps: 'TEST'
                 },
-            additional: {style: 'scss', dependencies: 'true'}
+            additional: {style: ECommandAdditionalArgumentsStyle.SCSS, dependencies: 'true'}
         },
         {
             core: 'generate',
@@ -231,7 +233,7 @@ export function getResults() {
                     kebap: 'test',
                     allCaps: 'TEST'
                 },
-            additional: {style: 'css', 'skip-import': false}
+            additional: {style: ECommandAdditionalArgumentsStyle.CSS, 'skip-import': false}
         },
         {
             core: 'generate',
@@ -244,7 +246,7 @@ export function getResults() {
                     kebap: 'test',
                     allCaps: 'TEST'
                 },
-            additional: {style: 'css', 'skip-import': false}
+            additional: {style: ECommandAdditionalArgumentsStyle.CSS, 'skip-import': false}
         },
         {
             core: 'generate',
@@ -257,7 +259,7 @@ export function getResults() {
                     kebap: 'test',
                     allCaps: 'TEST'
                 },
-            additional: {style: 'less', 'skip-import': false}
+            additional: {style: ECommandAdditionalArgumentsStyle.LESS, 'skip-import': false}
         },
         {
             core: 'generate',
@@ -270,7 +272,7 @@ export function getResults() {
                     kebap: 'test',
                     allCaps: 'TEST'
                 },
-            additional: {style: 'scss', 'skip-import': false}
+            additional: {style: ECommandAdditionalArgumentsStyle.SCSS, 'skip-import': false}
         },
         {
             core: 'generate',
@@ -283,7 +285,7 @@ export function getResults() {
                     kebap: 'test',
                     allCaps: 'TEST'
                 },
-            additional: {style: 'css', 'skip-import': 'true'}
+            additional: {style: ECommandAdditionalArgumentsStyle.CSS, 'skip-import': 'true'}
         },
         {
             core: 'generate',
@@ -296,7 +298,7 @@ export function getResults() {
                     kebap: 'test',
                     allCaps: 'TEST'
                 },
-            additional: {style: 'css', 'skip-import': 'false'}
+            additional: {style: ECommandAdditionalArgumentsStyle.CSS, 'skip-import': 'false'}
         },
         {
             core: 'generate',
@@ -309,7 +311,7 @@ export function getResults() {
                     kebap: 'test',
                     allCaps: 'TEST'
                 },
-            additional: {style: 'css', 'skip-import': 'false'}
+            additional: {style: ECommandAdditionalArgumentsStyle.CSS, 'skip-import': 'false'}
         },
         {
             core: 'generate',
@@ -322,7 +324,7 @@ export function getResults() {
                     kebap: 'test',
                     allCaps: 'TEST'
                 },
-            additional: {style: 'css', 'skip-import': 'true'}
+            additional: {style: ECommandAdditionalArgumentsStyle.CSS, 'skip-import': 'true'}
         },
         {
             core: 'generate',
@@ -335,7 +337,7 @@ export function getResults() {
                     kebap: 'test',
                     allCaps: 'TEST'
                 },
-            additional: {style: 'less', 'skip-import': 'false'}
+            additional: {style: ECommandAdditionalArgumentsStyle.LESS, 'skip-import': 'false'}
         },
         {
             core: 'generate',
@@ -348,7 +350,7 @@ export function getResults() {
                     kebap: 'test',
                     allCaps: 'TEST'
                 },
-            additional: {style: 'less', 'skip-import': 'true'}
+            additional: {style: ECommandAdditionalArgumentsStyle.LESS, 'skip-import': 'true'}
         },
         {
             core: 'generate',
@@ -361,7 +363,7 @@ export function getResults() {
                     kebap: 'test',
                     allCaps: 'TEST'
                 },
-            additional: {style: 'scss', 'skip-import': 'false'}
+            additional: {style: ECommandAdditionalArgumentsStyle.SCSS, 'skip-import': 'false'}
         },
         {
             core: 'generate',
@@ -374,7 +376,7 @@ export function getResults() {
                     kebap: 'test',
                     allCaps: 'TEST'
                 },
-            additional: {style: 'scss', 'skip-import': 'true'}
+            additional: {style: ECommandAdditionalArgumentsStyle.SCSS, 'skip-import': 'true'}
         },
         {
             core: 'generate',
@@ -387,7 +389,7 @@ export function getResults() {
                     kebap: 'test',
                     allCaps: 'TEST'
                 },
-            additional: {style: 'css', 'skip-import': false}
+            additional: {style: ECommandAdditionalArgumentsStyle.CSS, 'skip-import': false}
         },
         {
             core: 'generate',
@@ -400,7 +402,7 @@ export function getResults() {
                     kebap: 'test',
                     allCaps: 'TEST'
                 },
-            additional: {style: 'css', 'skip-import': 'true'}
+            additional: {style: ECommandAdditionalArgumentsStyle.CSS, 'skip-import': 'true'}
         },
         {
             core: 'generate',
@@ -413,7 +415,7 @@ export function getResults() {
                     kebap: 'test',
                     allCaps: 'TEST'
                 },
-            additional: {style: 'css', 'skip-import': 'false'}
+            additional: {style: ECommandAdditionalArgumentsStyle.CSS, 'skip-import': 'false'}
         },
         {
             core: 'generate',
@@ -426,7 +428,7 @@ export function getResults() {
                     kebap: 'test',
                     allCaps: 'TEST'
                 },
-            additional: {style: 'css', 'skip-import': false}
+            additional: {style: ECommandAdditionalArgumentsStyle.CSS, 'skip-import': false}
         },
         {
             core: 'generate',
@@ -439,7 +441,7 @@ export function getResults() {
                     kebap: 'test',
                     allCaps: 'TEST'
                 },
-            additional: {style: 'css', 'skip-import': 'true'}
+            additional: {style: ECommandAdditionalArgumentsStyle.CSS, 'skip-import': 'true'}
         },
         {
             core: 'generate',
@@ -452,7 +454,7 @@ export function getResults() {
                     kebap: 'test',
                     allCaps: 'TEST'
                 },
-            additional: {style: 'css', 'skip-import': 'false'}
+            additional: {style: ECommandAdditionalArgumentsStyle.CSS, 'skip-import': 'false'}
         },
         {
             core: 'generate',
@@ -465,7 +467,7 @@ export function getResults() {
                     kebap: 'test',
                     allCaps: 'TEST'
                 },
-            additional: {style: 'css', 'skip-import': false}
+            additional: {style: ECommandAdditionalArgumentsStyle.CSS, 'skip-import': false}
         },
         {
             core: 'generate',
@@ -478,7 +480,7 @@ export function getResults() {
                     kebap: 'test',
                     allCaps: 'TEST'
                 },
-            additional: {style: 'css', 'skip-import': 'true'}
+            additional: {style: ECommandAdditionalArgumentsStyle.CSS, 'skip-import': 'true'}
         },
         {
             core: 'generate',
@@ -491,7 +493,7 @@ export function getResults() {
                     kebap: 'test',
                     allCaps: 'TEST'
                 },
-            additional: {style: 'css', 'skip-import': 'false'}
+            additional: {style: ECommandAdditionalArgumentsStyle.CSS, 'skip-import': 'false'}
         },
         {
             core: 'generate',
@@ -504,7 +506,7 @@ export function getResults() {
                     kebap: 'test',
                     allCaps: 'TEST'
                 },
-            additional: {style: 'css', 'skip-import': false}
+            additional: {style: ECommandAdditionalArgumentsStyle.CSS, 'skip-import': false}
         },
         {
             core: 'generate',
@@ -517,7 +519,7 @@ export function getResults() {
                     kebap: 'test',
                     allCaps: 'TEST'
                 },
-            additional: {style: 'css', 'skip-import': 'true'}
+            additional: {style: ECommandAdditionalArgumentsStyle.CSS, 'skip-import': 'true'}
         },
         {
             core: 'generate',
@@ -530,7 +532,7 @@ export function getResults() {
                     kebap: 'test',
                     allCaps: 'TEST'
                 },
-            additional: {style: 'css', 'skip-import': 'false'}
+            additional: {style: ECommandAdditionalArgumentsStyle.CSS, 'skip-import': 'false'}
         },
         {
             core: 'generate',
@@ -543,7 +545,7 @@ export function getResults() {
                     kebap: 'test',
                     allCaps: 'TEST'
                 },
-            additional: {style: 'css', 'skip-import': false}
+            additional: {style: ECommandAdditionalArgumentsStyle.CSS, 'skip-import': false}
         },
         {
             core: 'generate',
@@ -556,7 +558,7 @@ export function getResults() {
                     kebap: 'test',
                     allCaps: 'TEST'
                 },
-            additional: {style: 'css', 'skip-import': 'true'}
+            additional: {style: ECommandAdditionalArgumentsStyle.CSS, 'skip-import': 'true'}
         },
         {
             core: 'generate',
@@ -569,7 +571,7 @@ export function getResults() {
                     kebap: 'test',
                     allCaps: 'TEST'
                 },
-            additional: {style: 'css', 'skip-import': 'false'}
+            additional: {style: ECommandAdditionalArgumentsStyle.CSS, 'skip-import': 'false'}
         },
         {
             core: 'generate',
@@ -582,7 +584,7 @@ export function getResults() {
                     kebap: 'test',
                     allCaps: 'TEST'
                 },
-            additional: {style: 'css', 'skip-import': false}
+            additional: {style: ECommandAdditionalArgumentsStyle.CSS, 'skip-import': false}
         },
         {
             core: 'generate',
@@ -595,7 +597,7 @@ export function getResults() {
                     kebap: 'test',
                     allCaps: 'TEST'
                 },
-            additional: {style: 'css', 'skip-import': 'true'}
+            additional: {style: ECommandAdditionalArgumentsStyle.CSS, 'skip-import': 'true'}
         },
         {
             core: 'generate',
@@ -608,7 +610,7 @@ export function getResults() {
                     kebap: 'test',
                     allCaps: 'TEST'
                 },
-            additional: {style: 'css', 'skip-import': 'false'}
+            additional: {style: ECommandAdditionalArgumentsStyle.CSS, 'skip-import': 'false'}
         }
     ];
 }
