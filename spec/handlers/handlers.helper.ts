@@ -8,6 +8,7 @@ export function generateRawArguments() {
         ['', '', 'new', 'test', '--style', ECommandAdditionalArgumentsStyle.SCSS],
         ['', '', 'new', 'test', '--dependencies', 'true'],
         ['', '', 'new', 'test', '--dependencies', 'false'],
+        ['', '', 'new', 'test', '-d'],
 
         ['', '', 'new', 'test', '--dependencies', 'false', '--style', ECommandAdditionalArgumentsStyle.CSS],
         ['', '', 'new', 'test', '--dependencies', 'true', '--style', ECommandAdditionalArgumentsStyle.CSS],
@@ -22,6 +23,7 @@ export function generateRawArguments() {
         ['', '', 'generate', 'component', 'test', '--style', ECommandAdditionalArgumentsStyle.SCSS],
         ['', '', 'generate', 'component', 'test', '--skip-import', 'true'],
         ['', '', 'generate', 'component', 'test', '--skip-import', 'false'],
+        ['', '', 'generate', 'component', 'test', '-s'],
 
         ['', '', 'generate', 'component', 'test', '--skip-import', 'false', '--style', ECommandAdditionalArgumentsStyle.CSS],
         ['', '', 'generate', 'component', 'test', '--skip-import', 'true', '--style', ECommandAdditionalArgumentsStyle.CSS],
@@ -92,7 +94,8 @@ export function getCommandArguments(): ICommandArguments[] {
                     allCaps: 'TEST'
                 },
             additional: {style: ECommandAdditionalArgumentsStyle.CSS, dependencies: true},
-        }, {
+        },
+        {
             core: 'new',
             type: '',
             name:
@@ -130,6 +133,19 @@ export function getCommandArguments(): ICommandArguments[] {
                     allCaps: 'TEST'
                 },
             additional: {style: ECommandAdditionalArgumentsStyle.CSS, dependencies: 'true'}
+        },
+        {
+            core: 'new',
+            type: '',
+            name:
+                {
+                    lowerCamel: 'test',
+                    upperCamel: 'Test',
+                    snake: 'test',
+                    kebap: 'test',
+                    allCaps: 'TEST'
+                },
+            additional: {style: ECommandAdditionalArgumentsStyle.CSS, dependencies: 'false'}
         },
         {
             core: 'new',
@@ -299,6 +315,19 @@ export function getCommandArguments(): ICommandArguments[] {
                     allCaps: 'TEST'
                 },
             additional: {style: ECommandAdditionalArgumentsStyle.CSS, 'skip-import': 'false'}
+        },
+        {
+            core: 'generate',
+            type: 'component',
+            name:
+                {
+                    lowerCamel: 'test',
+                    upperCamel: 'Test',
+                    snake: 'test',
+                    kebap: 'test',
+                    allCaps: 'TEST'
+                },
+            additional: {style: ECommandAdditionalArgumentsStyle.CSS, 'skip-import': 'true'}
         },
         {
             core: 'generate',
