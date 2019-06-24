@@ -6,6 +6,6 @@ describe('readCommandDataHandler', () => {
     const results = getCommandArguments();
 
     it('should generate command data', () => {
-        // @TODO: Add readCommandDataHandler tests
+        // @TODO: Add new readCommandDataHandler tests
     });
 });
