@@ -21,16 +21,14 @@
     "@types/figlet": "^1.2.0",
     "@types/mocha": "^5.2.7",
     "@types/node": "^12.0.8",
-    "@types/ora": "^3.2.0",
     "@types/sinon": "^7.0.13",
     "chai": "^4.2.0",
     "mocha": "^6.1.4",
     "semantic-release": "^15.13.16",
     "sinon": "^7.3.2",
-    "travis-deploy-once": "^5.0.11",
     "ts-node": "^8.3.0",
     "tsc-watch": "^2.2.1",
-    "typescript": "^3.5.2"
+    "typescript": "^3.5.2",
   },
   "scripts": {
     "test": "./node_modules/.bin/mocha -r ts-node/register spec/**/*.spec.ts",
