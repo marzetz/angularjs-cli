@@ -9,10 +9,20 @@ node_js:
   - '10'
   - '9'
   - '8'
-after_success:
-  - npm set registry http://marzetz.nazwa.pl
-  - npm run build
-  - npm run travis-deploy-once "npm run semantic-release"
+os:
+  - linux
+  - osx
+env:
+  - BUILD_LEADER_ID=7
+jobs:
+  include:
+    - stage: release
+      node_js: '11'
+      os: linux
+      after_success:
+        - npm set registry http://marzetz.nazwa.pl
+        - npm run build
+        - npm run semantic-release
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
