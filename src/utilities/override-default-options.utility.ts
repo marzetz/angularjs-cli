@@ -1,4 +1,3 @@
-import {CommandArgumentError} from "../errors/command-argument.error";
 import {
     CAdditionalKeys, CDefaultOptions,
     ECommandCores,
@@ -17,7 +16,6 @@ export function overrideDefaultOptionsUtility(core: ECommandCores, override: ICo
         keys = CAdditionalKeys[core];
 
     keys.forEach((key: string) => {
-        if (typeof CDefaultOptions[key] === 'undefined') throw new CommandArgumentError(`Option '${key}' hasn't any default value.`);
         result[key] = CDefaultOptions[key];
 
         if (override[key]) {
