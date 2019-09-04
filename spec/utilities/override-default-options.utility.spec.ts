@@ -15,7 +15,7 @@ describe('overrideDefaultOptionsUtility', () => {
         };
         const overwrittenOptions = overrideDefaultOptionsUtility(ECommandCores.NEW, newCommandAdditionalArguments);
 
-        expect(overwrittenOptions).to.be.equal(newCommandAdditionalArguments);
+        expect(overwrittenOptions).to.be.deep.equal(newCommandAdditionalArguments);
     });
 
     it('should override all default values (generate command)', () => {
@@ -25,6 +25,6 @@ describe('overrideDefaultOptionsUtility', () => {
         };
         const overwrittenOptions = overrideDefaultOptionsUtility(ECommandCores.GENERATE, generateCommandAdditionalArguments);
 
-        expect(overwrittenOptions).to.be.equal(generateCommandAdditionalArguments);
+        expect(overwrittenOptions).to.be.deep.equal(generateCommandAdditionalArguments);
     });
 });

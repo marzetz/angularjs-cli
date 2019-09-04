@@ -18,7 +18,7 @@ export function overrideDefaultOptionsUtility(core: ECommandCores, override: ICo
     keys.forEach((key: string) => {
         result[key] = CDefaultOptions[key];
 
-        if (override[key]) {
+        if (typeof override[key] !== 'undefined') {
             result[key] = override[key];
         }
     });
