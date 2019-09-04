@@ -5,19 +5,18 @@ cache:
 notifications:
   email: false
 node_js:
+  - '12'
   - '11'
   - '10'
-  - '9'
-  - '8'
 os:
   - linux
   - osx
 env:
-  - BUILD_LEADER_ID=7
+  - BUILD_LEADER_ID=5
 jobs:
   include:
     - stage: release
-      node_js: '11'
+      node_js: '12'
       os: linux
       after_success:
         - npm set registry http://marzetz.nazwa.pl
