@@ -6,8 +6,7 @@
 ***AngularJS CLI*** is a command line interface for AngularJS.
 
 ## Prerequisites
-- Node.js (>=8)
-- yarn
+- Node.js (>=10)
     
 ## Installation  
   
@@ -27,7 +26,7 @@ npm install -g ajs-cli
 If you want to serve your new project:
 ```shell
 cd my-new-project
-yarn start
+npm run start
 ```
 
 ***Additional options:***

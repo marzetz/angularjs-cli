@@ -26,7 +26,7 @@ async function run(): Promise<void> {
 
     if (args.core === ECommandCores.NEW && commandData.dependencies) {
         spinner.setText('Installing dependencies...');
-        await Tools.exec(`cd ${args.name.kebap}; yarn install;`);
+        await Tools.exec(`cd ${args.name.kebap}; npm install;`);
     }
 }
 
